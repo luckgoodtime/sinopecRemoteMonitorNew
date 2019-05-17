@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的生活</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+	<style type="text/css">
+		.list-block{
+			margin: 0;
+		}
+		.item-title span:nth-of-type(2){
+			margin-left: 15px;
+			margin-right: 10px;
+		}
+		.list-block.media-list .item-title em{
+			display: inline-block;
+			font-size: 12px;
+			background: #4C89FF;
+			color: #FFFFFF;
+			border-radius: 10px;
+			padding: 2px 5px;
+			font-style: normal;
+		}
+		.list-block .item-subtitle{
+			font-size:13px;
+			max-width: 80%;
+			overflow:initial;
+			white-space:normal;
+		}
+		.item-content{
+			position: relative;
+			border-bottom: 1px solid #c9c9c9;
+		}
+		.BianJiBtn{
+			position: absolute;
+			right: 0.75rem;
+			top: 50%;
+			margin-top: -0.55rem;
+		}
+		.Acquire .item-content{
+			padding-left: 2.3rem;
+		}
+		.item-Acq{
+			position: absolute;
+			left: 0.75rem;
+			top: 50%;
+			margin-top: -0.55rem;
+			display: none;
+		}
+		.item-active{
+			display: block;
+		}
+		.item-Acq span{
+			background: red;
+			color: #fff;
+			border-radius: 50%;
+			width: 16px;
+			height: 16px;
+			font-size: 12px;
+			line-height: 16px;
+			text-align:center;
+			display: inline-block;
+		}
+		/* 添加收货地址 */
+		.AdidtionAdd{
+			position: fixed;
+			bottom: 0;
+			width: 100%;
+			height: 60px;
+			background: #FFFFFF;
+		}
+		.AdidtionAdd div{
+			background: red;
+			color: #FFFFFF;
+			text-align: center;
+			margin: 10px 20%;
+			border-radius: 30px;
+			height: 40px;
+			line-height: 40px;
+			font-size: 15px;
+		}
+	</style>
+  </head>
+  <body>
+    <div class="page-group">
+        <div class="page page-current">
+        	<!-- 头部 -->
+        	<header class="bar bar-nav">
+                <a class="icon icon-left pull-left open-panel" style="color: #000000;"></a>
+                <h1 class="title">收货地址</h1>
+            </header>
+          <div class="content">
+            	<div class="list-block media-list">
+						    <ul id="oUL">
+						    	<!-- 默认地址 -->
+						    	<li class="Acquire">
+						        <div class="item-content">
+						          <div class="item-inner">
+						            <div class="item-title-row">
+						              <div class="item-title">
+						              	<span>王新生</span>
+						              	<span>138****9601</span>
+						              	<em>家</em>
+						              </div>
+						            </div>
+						            <div class="item-subtitle">湖南张家界市武陵源区 国宾酒店-武陵大道190号</div>
+						          </div>
+						          <!-- 编辑 -->
+						          <div class="BianJiBtn"><span class="icon icon-edit"></span></div>
+						        </div>
+						          <!-- 默认标志 -->
+						          <div class="item-Acq item-active">
+						          		<span class="icon icon-check"></span>
+						          </div>
+						      </li>
+						    	<!-- 备选地址 -->
+						      <li>
+						        <div class="item-content">
+						          <div class="item-inner">
+						            <div class="item-title-row">
+						              <div class="item-title">
+						              	<span>满益兵</span>
+						              	<span>138****9601</span>
+						              	<em>家</em>
+						              </div>
+						            </div>
+						            <div class="item-subtitle">湖南张家界市武陵源区 国宾酒店-武陵大道190号</div>
+						          </div>
+						          <!-- 编辑 -->
+						          <div class="BianJiBtn"><span class="icon icon-edit"></span></div>
+						        </div>
+						          <!-- 默认标志 -->
+						          <div class="item-Acq">
+						          		<span class="icon icon-check"></span>
+						          </div>
+						      </li>
+						      
+						      <li>
+						        <div class="item-content">
+						          <div class="item-inner">
+						            <div class="item-title-row">
+						              <div class="item-title">
+						              	<span>窦红妮</span>
+						              	<span>138****9601</span>
+						              	<em>家</em>
+						              </div>
+						            </div>
+						            <div class="item-subtitle">湖南张家界市武陵源区 国宾酒店-武陵大道190号</div>
+						          </div>
+						          <!-- 编辑 -->
+						          <div class="BianJiBtn"><span class="icon icon-edit"></span></div>
+						        </div>
+						          <!-- 默认标志 -->
+						          <div class="item-Acq">
+						          		<span class="icon icon-check"></span>
+						          </div>
+						      </li>
+						      
+						      <li>
+						        <div class="item-content">
+						          <div class="item-inner">
+						            <div class="item-title-row">
+						              <div class="item-title">
+						              	<span>窦红妮</span>
+						              	<span>138****9601</span>
+						              	<em>家</em>
+						              </div>
+						            </div>
+						            <div class="item-subtitle">湖南张家界市武陵源区 国宾酒店-武陵大道190号</div>
+						          </div>
+						          <!-- 编辑 -->
+						          <div class="BianJiBtn"><span class="icon icon-edit"></span></div>
+						        </div>
+						          <!-- 默认标志 -->
+						          <div class="item-Acq">
+						          		<span class="icon icon-check"></span>
+						          </div>
+						      </li>
+						      
+						      <li>
+						        <div class="item-content">
+						          <div class="item-inner">
+						            <div class="item-title-row">
+						              <div class="item-title">
+						              	<span>窦红妮</span>
+						              	<span>138****9601</span>
+						              	<em>家</em>
+						              </div>
+						            </div>
+						            <div class="item-subtitle">湖南张家界市武陵源区 国宾酒店-武陵大道190号</div>
+						          </div>
+						          <!-- 编辑 -->
+						          <div class="BianJiBtn"><span class="icon icon-edit"></span></div>
+						        </div>
+						          <!-- 默认标志 -->
+						          <div class="item-Acq">
+						          		<span class="icon icon-check"></span>
+						          </div>
+						      </li>
+						      
+						      
+						    </ul>
+						  </div>
+            </div>
+        	
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+  </body>
+</html>
+
+<script>
+	var oUL = document.getElementById("oUL");
+	var oLi = oUL.getElementsByTagName("li");
+	var remove = document.getElementsByClassName("item-Acq");
+	
+	
+	for (var i=0; i<oLi.length;i++) {
+		oLi[i].index = i;
+		oLi[i].onclick = function(){
+			for (var i=0; i<oLi.length; i++) {
+				remove[i].className = "item-Acq";
+				oLi[i].className = "";
+			}
+			this.className = "Acquire";
+	    remove[this.index].className = "item-Acq item-active"
+		}
+	}	
+	
+		
+		
+		
+		
+//	var Addition = document.createElement("div");
+//			Addition.className = "item-Acq";
+//			this.appendChild(Addition);
+//			var oIcon = document.createElement("span");
+//			oIcon.className = "icon icon-check";
+//			Addition.appendChild(oIcon);
+</script>

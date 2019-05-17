@@ -1,0 +1,119 @@
+package com.lng.action.businessexec;
+
+import java.text.ParseException;
+import java.util.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.lng.action.main.BaseController;
+import com.lng.model.base.Address;
+import com.lng.model.base.Person;
+import com.lng.model.base.SourcePoint;
+import com.lng.model.base.party.Party;
+import com.lng.service.base.AddressService;
+import com.lng.service.biz.order.SourcePointService;
+import com.lng.util.Const;
+import com.lng.util.Util;
+
+@Controller
+@RequestMapping("/sourcePoint")
+public class SourcePointController extends BaseController{
+
+	public static final String DIR = "businessexec/sourcePoint/";
+	public static final String R = "redirect:/sourcePoint/list.do";
+	
+	@Resource
+	private SourcePointService sourcePointService;
+	
+	
+	/**
+	 * @category 列表
+	 */
+	@RequestMapping("/list.do")
+	public String list(HttpServletRequest request) {
+		
+		request.setAttribute("p", sourcePointService.getListForPageDefault());
+		return DIR + "list";
+	}
+	
+	
+	/**
+	 * @category 新增或修改页面
+	 */
+	@RequestMapping(value = "/addOrUpdate.do")
+	public String addOrUpdate(SourcePoint o, HttpServletRequest request) {
+		if (o.getId() !=null) {
+			SourcePoint o2 = (SourcePoint)baseService.get(SourcePoint.class, o.getId());
+			request.setAttribute("o", o2);
+			
+		}
+		return DIR + "addOrUpdate";
+	}
+
+	/**
+	 * @throws ParseException 
+	 * @category 新增
+	 */
+	@RequestMapping(value = "/addDo.do")
+	public String addDo(@Valid @ModelAttribute("o")SourcePoint o,Errors errors,HttpServletRequest request, HttpSession session) {
+
+		if (errors.hasErrors()) return VALIDATE_ERROR;
+		// 新增
+		Person person = (Person) session.getAttribute("person");
+		Party p = new Party();
+		p.setCreatedByUser(person.getPartyId());
+		p.setCreatedDate(Util.dateToStr2(new Date()));
+		p.setDescription("SourcePoint");
+		p.setPartyTypeId(Const.PARTY_TYPE_SOURCEPOINT);
+		p.setStatusId(Const.PARTY_STATUS_USE);
+		baseService.save(p);
+			
+		baseService.save(o);
+	
+		return R;
+	}
+	
+	/**
+	 * @throws ParseException 
+	 * @category 更新
+	 */
+	@RequestMapping(value = "/updateDo.do")
+	public String updateDo(@Valid @ModelAttribute("o")SourcePoint o, Errors errors,HttpServletRequest request, HttpSession session) {
+
+		if (errors.hasErrors()) return VALIDATE_ERROR;
+		//修改
+		SourcePoint o2 =  (SourcePoint)baseService.get(SourcePoint.class, o.getId());
+		if(o2!=null){
+			//o2.setSourceName(o.getSourceName());
+			
+			baseService.update(o2);
+		}
+	
+		return R;
+	}
+
+	/**
+	 * @category 删除
+	 */
+	@RequestMapping(value = "/del")
+	public String del(String ids) {
+
+		if (StringUtils.isNotBlank(ids)) {
+			articleService.del(ids);
+		}
+		return R;
+	}
+
+
+}

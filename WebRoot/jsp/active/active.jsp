@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<%@ page pageEncoding="UTF-8"%>
+		<%@ include file="/jsp/include/taglib.jsp"%>
+		<%@ include file="/jsp/include/title.jsp"%>
+		<%@ include file="/jsp/include/css.jsp"%>
+		<%@ include file="/jsp/include/js.jsp"%>
+		
+<script type="text/javascript">
+$(function(){	
+	
+	
+})	
+</script>
+	</head>
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					欢迎您来激活帐号
+				</li>
+				
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div class="formtitle">
+				<span>请输入qq号，email，手机号进行激活</span>
+			</div>
+			<form method="post" action="<%=request.getContextPath()%>/active/activeDo">
+				
+				<ul class="forminfo">
+					<li>
+						<label>
+							请填写：
+						</label>
+						<input name="info" type="text" class="dfinput" />
+						<i></i>
+					</li>
+					
+					<li>
+						<label>
+							&nbsp;
+						</label>
+						<input type="submit" class="btn" value="激活" />
+							<input type="button" class="btn" value="返回"  onclick="history.go(-1);"/>
+					</li>
+				</ul>
+
+			</form>
+		</div>
+
+
+	</body>
+
+</html>
+
