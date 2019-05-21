@@ -15,7 +15,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.lng.aop.SystemLog;
 import com.lng.model.base.Corporation;
 import com.lng.model.base.Person;
 import com.lng.util.Util;
@@ -29,7 +28,6 @@ public class LoginController extends BaseController {
 	/**
 	 * @category 登录页面
 	 */
-	@SystemLog(module = "LoginController模块",methods = "login方法")
 	@RequestMapping("/login")
 	public String login() {
 //		if (Util.isMobile()) {  
