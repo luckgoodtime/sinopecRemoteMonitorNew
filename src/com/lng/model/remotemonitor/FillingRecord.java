@@ -19,7 +19,7 @@ public class FillingRecord {
 		@GeneratedValue(generator = "generator")
 		private Integer id;  //主键
 		private String recordId;  //站级记录ID
-		private Integer gunNo;  //枪号
+		private String gunNo;  //枪号
 		private String carNo;//卡号
 		private String holderName;//持卡人姓名
 		private String plateNo;//车牌号
@@ -52,10 +52,10 @@ public class FillingRecord {
 		public void setRecordId(String recordId) {
 			this.recordId = recordId;
 		}
-		public Integer getGunNo() {
+		public String getGunNo() {
 			return gunNo;
 		}
-		public void setGunNo(Integer gunNo) {
+		public void setGunNo(String gunNo) {
 			this.gunNo = gunNo;
 		}
 		public String getCarNo() {

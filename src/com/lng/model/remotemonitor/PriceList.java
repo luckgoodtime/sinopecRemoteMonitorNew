@@ -18,8 +18,7 @@ public class PriceList {
 		@GenericGenerator(name = "generator", strategy = "native")
 		@GeneratedValue(generator = "generator")
 		private Integer id;  //主键
-		@Column(columnDefinition="int default 1")
-		private Integer gunNo;//枪号
+		private String gunNo;//枪号
 		@Column(precision=18, scale=2)
 		private BigDecimal oldPrice;  //旧价格
 		@Column(precision=18, scale=2)
@@ -38,10 +37,10 @@ public class PriceList {
 		public void setId(Integer id) {
 			this.id = id;
 		}
-		public Integer getGunNo() {
+		public String getGunNo() {
 			return gunNo;
 		}
-		public void setGunNo(Integer gunNo) {
+		public void setGunNo(String gunNo) {
 			this.gunNo = gunNo;
 		}
 		public BigDecimal getOldPrice() {
