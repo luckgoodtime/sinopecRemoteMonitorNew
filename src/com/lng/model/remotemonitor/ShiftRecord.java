@@ -17,7 +17,7 @@ public class ShiftRecord {
 		@GenericGenerator(name = "generator", strategy = "native")
 		@GeneratedValue(generator = "generator")
 		private Integer id;  //主键
-		private Integer recordId;  //记录ID
+		private String recordId;  //站级记录ID
 		@Column(nullable=true,length=50)
 		private String shiftNo;  //班组号
 		private Date startTime; //上班时间
@@ -30,10 +30,10 @@ public class ShiftRecord {
 	    private Integer belgon2PartyId;//公司
 	    
 	    
-		public Integer getRecordId() {
+		public String getRecordId() {
 			return recordId;
 		}
-		public void setRecordId(Integer recordId) {
+		public void setRecordId(String recordId) {
 			this.recordId = recordId;
 		}
 		public String getShiftNo() {

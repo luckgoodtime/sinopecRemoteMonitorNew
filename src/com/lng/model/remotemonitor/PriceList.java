@@ -18,7 +18,6 @@ public class PriceList {
 		@GenericGenerator(name = "generator", strategy = "native")
 		@GeneratedValue(generator = "generator")
 		private Integer id;  //主键
-		private Integer recordId;  //记录ID
 		@Column(columnDefinition="int default 1")
 		private Integer gunNo;//枪号
 		@Column(precision=18, scale=2)
@@ -38,12 +37,6 @@ public class PriceList {
 		}
 		public void setId(Integer id) {
 			this.id = id;
-		}
-		public Integer getRecordId() {
-			return recordId;
-		}
-		public void setRecordId(Integer recordId) {
-			this.recordId = recordId;
 		}
 		public Integer getGunNo() {
 			return gunNo;

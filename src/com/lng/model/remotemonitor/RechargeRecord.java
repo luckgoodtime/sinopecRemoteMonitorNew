@@ -18,7 +18,7 @@ public class RechargeRecord {
 		@GenericGenerator(name = "generator", strategy = "native")
 		@GeneratedValue(generator = "generator")
 		private Integer id;  //主键
-		private Integer recordId;  //记录ID
+		private String recordId;  //记录ID
 		private String carNo;//卡号
 		private String holderName;//持卡人姓名
 		private Date operateTime;//操作时间
@@ -40,10 +40,10 @@ public class RechargeRecord {
 		public void setId(Integer id) {
 			this.id = id;
 		}
-		public Integer getRecordId() {
+		public String getRecordId() {
 			return recordId;
 		}
-		public void setRecordId(Integer recordId) {
+		public void setRecordId(String recordId) {
 			this.recordId = recordId;
 		}
 		public String getCarNo() {
