@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 import org.hibernate.annotations.GenericGenerator;
 
-
+//上下班表
 @Entity(name = "shift_record")
 public class ShiftRecord {
 	
