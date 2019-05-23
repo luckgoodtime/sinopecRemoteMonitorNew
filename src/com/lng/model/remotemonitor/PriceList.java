@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 //价格表
-@Entity(name = "price_list")
+@Entity
 public class PriceList {
 	
 		@Id

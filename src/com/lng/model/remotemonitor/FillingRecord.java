@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 //加气记录表
-@Entity(name = "filling_record")
+@Entity
 public class FillingRecord {
 	
 		@Id

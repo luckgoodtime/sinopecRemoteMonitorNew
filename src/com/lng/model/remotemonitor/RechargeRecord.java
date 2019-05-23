@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 //充值表
-@Entity(name = "recharge_record")
+@Entity
 public class RechargeRecord {
 	
 		@Id
