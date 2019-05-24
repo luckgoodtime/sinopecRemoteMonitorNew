@@ -32,6 +32,7 @@ public class FillingRecord {
 		private BigDecimal cardBalance;  //卡余额
 		private String cardType;//卡类型 无卡 员工卡 用户卡 计量卡
 		private String fillType;//加气类型 LNG CNG
+		private String ttc;//加气机加气记录流水号
 		private String note;// 说明 共几枪
 		@Column(length=64)
 	    private String stationNo;//加气站编号
@@ -129,6 +130,12 @@ public class FillingRecord {
 		}
 		public void setFillType(String fillType) {
 			this.fillType = fillType;
+		}
+		public String getTtc() {
+			return ttc;
+		}
+		public void setTtc(String ttc) {
+			this.ttc = ttc;
 		}
 		public String getNote() {
 			return note;
