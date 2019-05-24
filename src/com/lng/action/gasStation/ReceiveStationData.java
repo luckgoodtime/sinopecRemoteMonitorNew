@@ -17,10 +17,10 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lng.action.main.BaseController;
-import com.lng.model.remotemonitor.FillingRecord;
-import com.lng.model.remotemonitor.PriceList;
-import com.lng.model.remotemonitor.RechargeRecord;
-import com.lng.model.remotemonitor.ShiftRecord;
+import com.lng.model.gasStation.FillingRecord;
+import com.lng.model.gasStation.PriceList;
+import com.lng.model.gasStation.RechargeRecord;
+import com.lng.model.gasStation.ShiftRecord;
 
 @Controller
 @RequestMapping("/gasStation")

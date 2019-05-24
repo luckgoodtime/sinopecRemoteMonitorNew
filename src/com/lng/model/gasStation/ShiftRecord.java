@@ -1,4 +1,4 @@
-package com.lng.model.remotemonitor;
+package com.lng.model.gasStation;
 
 import java.util.Date;
 

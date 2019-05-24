@@ -223,7 +223,7 @@ public class PermService extends BaseService{
 			}
 		}
 		//排序
-		Collections.sort(returnMenuList, new ComparatorMenu());
+//		Collections.sort(returnMenuList, new ComparatorMenu());
 		
 		
 		return returnMenuList;

@@ -1,4 +1,4 @@
-package com.lng.model.remotemonitor;
+package com.lng.model.gasStation;
 
 import java.math.BigDecimal;
 import java.util.Date;
