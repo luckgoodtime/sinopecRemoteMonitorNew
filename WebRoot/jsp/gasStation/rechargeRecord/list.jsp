@@ -56,25 +56,40 @@
 				}
 			}, {
 				field : 'bizAmount',
-				title : '交易金额'
+				title : '交易金额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
 			}, {
 				field : 'rebate',
-				title : '返利'
+				title : '返利',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
 			}, {
 				field : 'balance',
-				title : '交易后余额'
+				title : '交易后余额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
 			}, {
 				field : 'cardType',
-				title : '卡类型'
+				title : '卡类型',align:'center',
 			}, {
 				field : 'bizType',
-				title : '交易类型'
+				title : '交易类型',align:'center',
+			}, {
+				field : 'stationName',
+				title : '加气站名称加气站编号'
 			}, {
 				field : 'stationNo',
 				title : '加气站编号'
-			}, {
-				field : 'stationName',
-				title : '加气站名称'
 			},
 
 			] ]

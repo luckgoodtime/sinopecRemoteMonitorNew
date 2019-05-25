@@ -29,22 +29,63 @@ function dataGridTable() {
 	      columns: [[
 	        { field: 'id', title: '编号'},
 	        { field: 'recordId', title: '站级记录ID'},
-	        { field: 'gunNo', title: '枪号' },
-	        { field: 'carNo', title: '卡号' },
-	        { field: 'holderName', title: '持卡人姓名' },
+	        { field: 'gunNo', title: '枪号',align:'center'},
+	        { field: 'cardNo', title: '卡号' },
+	        { field: 'holderName', title: '持卡人姓名' ,align:'center'},
 	        { field: 'plateNo', title: '车牌号' },
-	        { field: 'fillTime', title: '加气时间' },
-	        { field: 'price', title: '单价' },
-	        { field: 'volume', title: '原始气量' },
-	        { field: 'receivable', title: '原始金额' },
-	        { field: 'discount', title: '优惠金额' },
-	        { field: 'receiptTotal', title: '实际金额' },
-	        { field: 'cardBalance', title: '卡余额' },
-	        { field: 'cardType', title: '卡类型' },
-	        { field: 'fillType', title: '加气类型' },
-	        { field: 'note', title: '说明' },
+	        { field: 'fillTime', title: '加气时间', 
+	        	formatter: function (val, row, index) {
+	                return (new Date(val)).format("yyyy-MM-dd hh:mm:ss");
+	             }
+	        },
+	        { field: 'price', title: '单价',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'volume', title: '原始气量',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'receivable', title: '原始金额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'discount', title: '优惠金额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'receiptTotal', title: '实际金额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'cardBalance', title: '卡余额',align:'right',
+	        	formatter: function (value, row, index) {
+                    if (row != null) {
+                        return (parseFloat(value).toFixed(2) + '').replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, '$&,');
+                  	}
+                  }
+	       },
+	        { field: 'cardType', title: '卡类型' ,align:'center'},
+	        { field: 'fillType', title: '加气类型' ,align:'center'},
+	        { field: 'ttc', title: '加气机流水号' },
 	        { field: 'stationNo', title: '加气站编号' },
 	        { field: 'stationName', title: '加气站名称' },
+	        { field: 'note', title: '说明' }
 	        
 	      ]]
 	});	    
