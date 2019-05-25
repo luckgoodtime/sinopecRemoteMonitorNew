@@ -35,7 +35,7 @@
 	<body>
 		<div id="content">
 			<h2 class="con_h2_title">
-				欢迎登录智慧LPG新零售
+				欢迎登录数字化加气站云平台
 			</h2>
 			<div class="con_login">
 				<form action="<%=request.getContextPath()%>/loginDo.do" onsubmit="checkSubmit('username');" method="post">

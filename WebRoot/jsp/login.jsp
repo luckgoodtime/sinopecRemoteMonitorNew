@@ -37,7 +37,7 @@
 
 
 		<div class="logintop">
-			<span style="font-size:28px;">欢迎登录智慧LPG新零售</span>
+			<span style="font-size:28px;">欢迎登录数字化加气站云平台</span>
 			<ul>
 				<li>
 					<a href="<%=request.getContextPath()%>/active/active">我要激活</a>

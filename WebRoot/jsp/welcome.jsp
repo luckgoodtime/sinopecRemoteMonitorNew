@@ -30,7 +30,7 @@ $(function(){
 		</div>
 
 
-	<center style="margin-top: 200px;font-size: 40px;">欢迎登录智慧LPG新零售</center>
+	<center style="margin-top: 200px;font-size: 40px;">欢迎登录数字化加气站云平台</center>
 
 	</body>
 </html>
