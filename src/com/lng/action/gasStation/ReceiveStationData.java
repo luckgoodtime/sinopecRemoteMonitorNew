@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,9 +47,9 @@ public class ReceiveStationData extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/acceptStationData.do", method = RequestMethod.POST)
 	@ResponseBody
-	public <T> Map acceptStationData(HttpServletRequest request) {
+	public <T> Map acceptStationData(HttpServletRequest request, @RequestBody String json) {
 	
-		JSONObject obj = JSON.parseObject((String)request.getParameter("p"));
+		JSONObject obj = JSON.parseObject(json);
 		
 		//本次操作是否成功,如果成功，actionResult为保存的记录数
 		int result = -1;		 
@@ -68,6 +69,9 @@ public class ReceiveStationData extends BaseController{
 		
 		if("FillingRecord".equals(recordType)) {
 			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), FillingRecord.class);
+			
+			System.out.println(((FillingRecord)list.get(0)).getRecordId());
+			
 		} else if("PriceList".equals(recordType)) {			
 			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), PriceList.class);	
 		} else if("RechargeRecord".equals(recordType)) {			
@@ -88,6 +92,7 @@ public class ReceiveStationData extends BaseController{
 				}
 			}
 			this.baseService.batchSaveOrUpdate(list);
+			result = 1;
 		}
 		
 		message.put("result", result);
@@ -103,7 +108,7 @@ public class ReceiveStationData extends BaseController{
 	
 	public static <T> void main(String[] args) {
 		
-		String s = "{ recordType: \"FillingRecord\", stationNo: \"L02-01-0001\", stationName: \"朗润测试站\", data: [{ \"gunNo\": \"01\", \"cardNo\": \"01000411200000000003\", \"holderName\": \"张三\", \"plateNo\": \"津A12345\", \"fillTime\": \"2019-05-11 20:55:04\", \"Price\": \"5.23\", \"volume\": \"34.67\", \"receivable\": \"181.32\", \"discount\": \"0.32\", \"receiptTotal\": \"181.00\", \"cardBalance\": \"4565.65\", \"cardType\": \"员工卡\", \"fillType\": \"LNG\", \"ttc\": \"2019051100001\", \"note\": \" \"},{ \"gunNo\": \"04\", \"cardNo\": \"01000111200000000002\", \"holderName\": \"李四\", \"plateNo\": \"津A67890\", \"fillTime\": \"2019-05-12 10:33:56\", \"Price\": \"4.25\", \"volume\": \"14.06\", \"receivable\": \"59.76\", \"discount\": \"0.76\", \"receiptTotal\": \"59.00\", \"cardBalance\": \"1233.02\", \"cardType\": \"用户卡\", \"fillType\": \"CNG\", \"ttc\": \"2019051200021\", \"note\": \" \"}] }";
+		String s = "{ recordType: \"FillingRecord\", stationNo: \"L02-01-0001\", stationName: \"朗润测试站\", data: [{  \"recordId\": \"100\",\"gunNo\": \"01\", \"cardNo\": \"01000411200000000003\", \"holderName\": \"张三\", \"plateNo\": \"津A12345\", \"fillTime\": \"2019-05-11 20:55:04\", \"Price\": \"5.23\", \"volume\": \"34.67\", \"receivable\": \"181.32\", \"discount\": \"0.32\", \"receiptTotal\": \"181.00\", \"cardBalance\": \"4565.65\", \"cardType\": \"员工卡\", \"fillType\": \"LNG\", \"ttc\": \"2019051100001\", \"note\": \" \"},{ \"recordId\": \"101\",\"gunNo\": \"04\", \"cardNo\": \"01000111200000000002\", \"holderName\": \"李四\", \"plateNo\": \"津A67890\", \"fillTime\": \"2019-05-12 10:33:56\", \"Price\": \"4.25\", \"volume\": \"14.06\", \"receivable\": \"59.76\", \"discount\": \"0.76\", \"receiptTotal\": \"59.00\", \"cardBalance\": \"1233.02\", \"cardType\": \"用户卡\", \"fillType\": \"CNG\", \"ttc\": \"2019051200021\", \"note\": \" \"}] }";
 		
 		JSONObject obj = JSON.parseObject(s);
 		
@@ -136,6 +141,7 @@ public class ReceiveStationData extends BaseController{
 			System.out.println(((FillingRecord)list.get(0)).getReceivable());
 			System.out.println(((FillingRecord)list.get(0)).getTtc());
 			System.out.println(((FillingRecord)list.get(0)).getCardType());
+			System.out.println(((FillingRecord)list.get(0)).getRecordId());
 		}
 	}
 	

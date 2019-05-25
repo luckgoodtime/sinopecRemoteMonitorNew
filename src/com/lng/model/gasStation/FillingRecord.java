@@ -20,7 +20,7 @@ public class FillingRecord {
 		private Integer id;  //主键
 		private String recordId;  //站级记录ID
 		private String gunNo;  //枪号
-		private String carNo;//卡号
+		private String cardNo;//卡号
 		private String holderName;//持卡人姓名
 		private String plateNo;//车牌号
 		private Date fillTime;//加气时间
@@ -59,11 +59,12 @@ public class FillingRecord {
 		public void setGunNo(String gunNo) {
 			this.gunNo = gunNo;
 		}
-		public String getCarNo() {
-			return carNo;
+
+		public String getCardNo() {
+			return cardNo;
 		}
-		public void setCarNo(String carNo) {
-			this.carNo = carNo;
+		public void setCardNo(String cardNo) {
+			this.cardNo = cardNo;
 		}
 		public String getHolderName() {
 			return holderName;
