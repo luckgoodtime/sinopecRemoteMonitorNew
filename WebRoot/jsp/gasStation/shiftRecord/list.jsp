@@ -41,7 +41,7 @@ function dataGridTable() {
 					var h = date.getHours();
 					var M = date.getMinutes();
 					var s = date.getSeconds();
-					return y + '-' + m + '-' + d + ' ' + h + ':' + M + ':' + s;
+					return y + '-' + (m<10?'0'+ m : m) + '-' + (d<10?'0'+d :d ) + ' ' + (h<10?'0'+h:h) + ':' + (M<10?'0'+M:M) + ':' + (s<10?'0'+s:s);
 				}
 			}, {
 				field : 'endTime',
@@ -54,7 +54,7 @@ function dataGridTable() {
 					var h = date.getHours();
 					var M = date.getMinutes();
 					var s = date.getSeconds();
-					return y + '-' + m + '-' + d + ' ' + h + ':' + M + ':' + s;
+					return y + '-' + (m<10?'0'+ m : m) + '-' + (d<10?'0'+d :d ) + ' ' + (h<10?'0'+h:h) + ':' + (M<10?'0'+M:M) + ':' + (s<10?'0'+s:s);
 				}
 			}, {
 				field : 'confirmTime',
@@ -67,7 +67,7 @@ function dataGridTable() {
 					var h = date.getHours();
 					var M = date.getMinutes();
 					var s = date.getSeconds();
-					return y + '-' + m + '-' + d + ' ' + h + ':' + M + ':' + s;
+					return y + '-' + (m<10?'0'+ m : m) + '-' + (d<10?'0'+d :d ) + ' ' + (h<10?'0'+h:h) + ':' + (M<10?'0'+M:M) + ':' + (s<10?'0'+s:s);
 				}
 			},
 	        { field: 'stationNo', title: '加气站编号' },

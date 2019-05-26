@@ -1,5 +1,6 @@
 package com.lng.action.gasStation;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +32,13 @@ import com.lng.model.gasStation.ShiftRecord;
 public class ReceiveStationData extends BaseController{
 
 	
+
+	private static final Logger logger = LoggerFactory
+			.getLogger(ReceiveStationData.class);
+	
 	/**
 	 * @param <T>
+	 * @throws UnsupportedEncodingException 
 	 * @category 接收站级数据<br/>
 	 * 
 	 * 
@@ -47,13 +55,13 @@ public class ReceiveStationData extends BaseController{
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="/acceptStationData.do", method = RequestMethod.POST)
 	@ResponseBody
-	public <T> Map acceptStationData(HttpServletRequest request, @RequestBody String json) {
-	
+	public <T> Map acceptStationData(HttpServletRequest request, @RequestBody String json) throws UnsupportedEncodingException {
+		
 		JSONObject obj = JSON.parseObject(json);
 		
 		//本次操作是否成功,如果成功，actionResult为保存的记录数
 		int result = -1;		 
-		 
+		
 		System.out.println("-----------");
 		System.out.println(obj.toJSONString());
 		System.out.println("-----------");

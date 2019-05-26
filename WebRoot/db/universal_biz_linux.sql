@@ -20,8 +20,8 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 -- Table structure for address
 -- ----------------------------
-DROP TABLE IF EXISTS `address`;
-CREATE TABLE `address` (
+DROP TABLE IF EXISTS `Address`;
+CREATE TABLE `Address` (
   `addressId` int(11) NOT NULL AUTO_INCREMENT,
   `address1` varchar(255) DEFAULT NULL,
   `address2` varchar(255) DEFAULT NULL,
@@ -47,8 +47,8 @@ CREATE TABLE `address` (
 -- ----------------------------
 -- Table structure for article
 -- ----------------------------
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE `article` (
+DROP TABLE IF EXISTS `Article`;
+CREATE TABLE `Article` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `audit` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
@@ -67,8 +67,8 @@ CREATE TABLE `article` (
 -- ----------------------------
 -- Table structure for bizorder
 -- ----------------------------
-DROP TABLE IF EXISTS `bizorder`;
-CREATE TABLE `bizorder` (
+DROP TABLE IF EXISTS `BizOrder`;
+CREATE TABLE `BizOrder` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `addingFreight` decimal(19,2) DEFAULT NULL,
   `createPartyId` int(11) DEFAULT NULL,
@@ -126,8 +126,8 @@ CREATE TABLE `bizorder` (
 -- ----------------------------
 -- Table structure for corporation
 -- ----------------------------
-DROP TABLE IF EXISTS `corporation`;
-CREATE TABLE `corporation` (
+DROP TABLE IF EXISTS `Corporation`;
+CREATE TABLE `Corporation` (
   `partyId` int(11) NOT NULL,
   `activateDate` varchar(255) DEFAULT NULL,
   `addressDes` varchar(255) DEFAULT NULL,
@@ -157,14 +157,14 @@ CREATE TABLE `corporation` (
 -- ----------------------------
 -- Records of corporation
 -- ----------------------------
-INSERT INTO `corporation` VALUES ('1', null, '浙江省台州市临海市下桥路99号', '1', null, '2015-01-07', '浙江海圳荣液化石油气工业有限公司', '海圳荣', '', null, '', null, 'haizhenrong', '', '9133108261000210XD', '', null, '', 'hzr', '', '', '城镇燃气供应、贮存，瓶装燃气批发、零售，为船舶提供码头设施、在港区内提供货物装卸服务、港口设施租赁服务，钢瓶修理，厨房用具、消防器材销售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）', null);
+INSERT INTO `Corporation` VALUES ('1', null, '浙江省台州市临海市下桥路99号', '1', null, '2015-01-07', '浙江海圳荣液化石油气工业有限公司', '海圳荣', '', null, '', null, 'haizhenrong', '', '9133108261000210XD', '', null, '', 'hzr', '', '', '城镇燃气供应、贮存，瓶装燃气批发、零售，为船舶提供码头设施、在港区内提供货物装卸服务、港口设施租赁服务，钢瓶修理，厨房用具、消防器材销售。（依法须经批准的项目，经相关部门批准后方可开展经营活动）', null);
 
 
 -- ----------------------------
 -- Table structure for customer
 -- ----------------------------
-DROP TABLE IF EXISTS `customer`;
-CREATE TABLE `customer` (
+DROP TABLE IF EXISTS `Customer`;
+CREATE TABLE `Customer` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belgon2PartyId` int(11) DEFAULT NULL,
   `bizManager` int(11) DEFAULT NULL,
@@ -211,8 +211,8 @@ CREATE TABLE `customer` (
 -- ----------------------------
 -- Table structure for dic
 -- ----------------------------
-DROP TABLE IF EXISTS `dic`;
-CREATE TABLE `dic` (
+DROP TABLE IF EXISTS `Dic`;
+CREATE TABLE `Dic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `byOrder` varchar(255) DEFAULT NULL,
   `des` varchar(255) DEFAULT NULL,
@@ -228,8 +228,8 @@ CREATE TABLE `dic` (
 -- ----------------------------
 -- Table structure for endpoint
 -- ----------------------------
-DROP TABLE IF EXISTS `endpoint`;
-CREATE TABLE `endpoint` (
+DROP TABLE IF EXISTS `EndPoint`;
+CREATE TABLE `EndPoint` (
   `partyId` int(11) NOT NULL,
   `addressId` varchar(255) DEFAULT NULL,
   `fullPinyin` varchar(255) DEFAULT NULL,
@@ -247,8 +247,8 @@ CREATE TABLE `endpoint` (
 -- ----------------------------
 -- Table structure for fillingrecord
 -- ----------------------------
-DROP TABLE IF EXISTS `fillingrecord`;
-CREATE TABLE `fillingrecord` (
+DROP TABLE IF EXISTS `FillingRecord`;
+CREATE TABLE `FillingRecord` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belgon2PartyId` int(11) DEFAULT NULL,
   `cardNo` varchar(255) DEFAULT NULL,
@@ -279,8 +279,8 @@ CREATE TABLE `fillingrecord` (
 -- ----------------------------
 -- Table structure for member
 -- ----------------------------
-DROP TABLE IF EXISTS `member`;
-CREATE TABLE `member` (
+DROP TABLE IF EXISTS `Member`;
+CREATE TABLE `Member` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `address1` varchar(255) DEFAULT NULL,
   `address2` varchar(255) DEFAULT NULL,
@@ -298,8 +298,8 @@ CREATE TABLE `member` (
 -- ----------------------------
 -- Table structure for menu
 -- ----------------------------
-DROP TABLE IF EXISTS `menu`;
-CREATE TABLE `menu` (
+DROP TABLE IF EXISTS `Menu`;
+CREATE TABLE `Menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `des` varchar(255) DEFAULT NULL,
   `parentId` int(11) DEFAULT NULL,
@@ -314,64 +314,64 @@ CREATE TABLE `menu` (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
-INSERT INTO `menu` VALUES ('11', '公司管理', '100', 'corporation:list', '/corporation/list.do', '2', '0', null);
-INSERT INTO `menu` VALUES ('12', '公司管理-新增', '11', 'corporation:addDo', '/corporation/addDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('13', '公司管理-修改', '11', 'corporation:updateDo', '/corporation/updateDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('14', '公司管理-删除', '11', 'corporation:del', '/corporation/del.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('15', '我的员工', '8', 'person:list', '/person/list.do', '2', '0', null);
-INSERT INTO `menu` VALUES ('16', '我的员工-新增', '15', 'person:addDo', '/person/addDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('17', '我的员工-修改', '15', 'person:updateDo', '/person/updateDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('18', '我的员工-删除', '15', 'person:del', '/person/del.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('19', '我的员工-列表', '15', 'person:list', '/person/list.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('20', '公司管理-列表', '11', 'corporation:list', '/corporation/list.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('28', '业务执行', '0', 'no', '', '1', '6', 'icon06.png');
-INSERT INTO `menu` VALUES ('65', '人员管理', '100', 'allPerson:list', '/allPerson/list.do', '2', '0', null);
-INSERT INTO `menu` VALUES ('66', '人员管理-新增', '65', 'allPerson:addDo', '/allPerson/addDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('67', '人员管理-修改', '65', 'allPerson:updateDo', '/allPerson/updateDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('68', '人员管理-删除', '65', 'allPerson:del', '/allPerson/del.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('69', '人员管理-列表', '65', 'allPerson:list', '/allPerson/list.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('90', '角色管理', '100', 'role:list', '/role/list.do', '2', '0', null);
-INSERT INTO `menu` VALUES ('91', '角色管理-新增', '90', 'role:addDo.do', '/role/addDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('92', '角色管理-修改', '90', 'role:updateDo', '/role/updateDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('93', '角色管理-删除', '90', 'role:del', '/role/deldo', '3', '0', null);
-INSERT INTO `menu` VALUES ('94', '角色管理-列表', '90', 'role:list', '/role/list.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('95', '菜单管理', '100', 'menu:list', '/menu/list.do', '2', '0', null);
-INSERT INTO `menu` VALUES ('96', '菜单管理-新增', '95', 'menu:addDo.do', '/menu/addDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('97', '菜单管理-修改', '95', 'menu:updateDo', '/menu/updateDo.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('98', '菜单管理-删除', '95', 'menu:del', '/menu/del.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('99', '菜单管理-列表', '95', 'menu:listJson', '/menu/listJson.do', '3', '0', null);
-INSERT INTO `menu` VALUES ('100', '基础设施', '0', 'no', '', '1', '8', 'icon08.png');
-INSERT INTO `menu` VALUES ('232', '数据字典', '100', 'dic:list', '/dic/list.do', '2', null, null);
-INSERT INTO `menu` VALUES ('233', '数据字典-列表', '232', 'dic:list', '/dic/list.do', '3', null, null);
-INSERT INTO `menu` VALUES ('234', '数据字典-新增', '232', 'dic:addDo', '/dic/addDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('235', '数据字典-修改', '232', 'dic:updateDo', '/dic/updateDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('236', '数据字典-删除', '232', 'dic:del', '/dic/del.do', '3', null, null);
-INSERT INTO `menu` VALUES ('237', '加气记录', '28', 'fillingRecord:list', '/fillingRecord/list.do', '2', null, null);
-INSERT INTO `menu` VALUES ('238', '加气记录-列表', '237', 'fillingRecord:list', '/fillingRecord/list.do', '3', null, null);
-INSERT INTO `menu` VALUES ('239', '加气记录-新增', '237', 'fillingRecord:addDo', '/fillingRecord/addDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('240', '加气记录-修改', '237', 'fillingRecord:updateDo', '/fillingRecord/updateDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('241', '加气记录-删除', '237', 'fillingRecord:del', '/fillingRecord/del.do', '3', null, null);
-INSERT INTO `menu` VALUES ('242', '价格记录', '28', 'priceList:list', '/priceList/list.do', '2', null, null);
-INSERT INTO `menu` VALUES ('243', '价格记录-列表', '242', 'priceList:list', '/priceList/list.do', '3', null, null);
-INSERT INTO `menu` VALUES ('244', '价格记录-新增', '242', 'priceList:addDo', '/priceList/addDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('245', '价格记录-修改', '242', 'priceList:updateDo', '/priceList/updateDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('246', '价格记录-删除', '242', 'priceList:del', '/priceList/del.do', '3', null, null);
-INSERT INTO `menu` VALUES ('247', '充值记录', '28', 'rechargeRecord:list', '/rechargeRecord/list.do', '2', null, null);
-INSERT INTO `menu` VALUES ('248', '充值记录-列表', '247', 'rechargeRecord:list', '/rechargeRecord/list.do', '3', null, null);
-INSERT INTO `menu` VALUES ('249', '充值记录-新增', '247', 'rechargeRecord:addDo', '/rechargeRecord/addDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('250', '充值记录-修改', '247', 'rechargeRecord:updateDo', '/rechargeRecord/updateDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('251', '充值记录-删除', '247', 'rechargeRecord:del', '/rechargeRecord/del.do', '3', null, null);
-INSERT INTO `menu` VALUES ('252', '上下班记录', '28', 'shiftRecord:list', '/shiftRecord/list.do', '2', null, null);
-INSERT INTO `menu` VALUES ('253', '上下班记录-列表', '252', 'shiftRecord:list', '/shiftRecord/list.do', '3', null, null);
-INSERT INTO `menu` VALUES ('254', '上下班记录-新增', '252', 'shiftRecord:addDo', '/shiftRecord/addDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('255', '上下班记录-修改', '252', 'shiftRecord:updateDo', '/shiftRecord/updateDo.do', '3', null, null);
-INSERT INTO `menu` VALUES ('256', '上下班记录-删除', '252', 'shiftRecord:del', '/shiftRecord/del.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('11', '公司管理', '100', 'corporation:list', '/corporation/list.do', '2', '0', null);
+INSERT INTO `Menu` VALUES ('12', '公司管理-新增', '11', 'corporation:addDo', '/corporation/addDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('13', '公司管理-修改', '11', 'corporation:updateDo', '/corporation/updateDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('14', '公司管理-删除', '11', 'corporation:del', '/corporation/del.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('15', '我的员工', '8', 'person:list', '/person/list.do', '2', '0', null);
+INSERT INTO `Menu` VALUES ('16', '我的员工-新增', '15', 'person:addDo', '/person/addDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('17', '我的员工-修改', '15', 'person:updateDo', '/person/updateDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('18', '我的员工-删除', '15', 'person:del', '/person/del.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('19', '我的员工-列表', '15', 'person:list', '/person/list.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('20', '公司管理-列表', '11', 'corporation:list', '/corporation/list.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('28', '业务执行', '0', 'no', '', '1', '6', 'icon06.png');
+INSERT INTO `Menu` VALUES ('65', '人员管理', '100', 'allPerson:list', '/allPerson/list.do', '2', '0', null);
+INSERT INTO `Menu` VALUES ('66', '人员管理-新增', '65', 'allPerson:addDo', '/allPerson/addDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('67', '人员管理-修改', '65', 'allPerson:updateDo', '/allPerson/updateDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('68', '人员管理-删除', '65', 'allPerson:del', '/allPerson/del.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('69', '人员管理-列表', '65', 'allPerson:list', '/allPerson/list.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('90', '角色管理', '100', 'role:list', '/role/list.do', '2', '0', null);
+INSERT INTO `Menu` VALUES ('91', '角色管理-新增', '90', 'role:addDo.do', '/role/addDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('92', '角色管理-修改', '90', 'role:updateDo', '/role/updateDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('93', '角色管理-删除', '90', 'role:del', '/role/deldo', '3', '0', null);
+INSERT INTO `Menu` VALUES ('94', '角色管理-列表', '90', 'role:list', '/role/list.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('95', '菜单管理', '100', 'menu:list', '/menu/list.do', '2', '0', null);
+INSERT INTO `Menu` VALUES ('96', '菜单管理-新增', '95', 'menu:addDo.do', '/menu/addDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('97', '菜单管理-修改', '95', 'menu:updateDo', '/menu/updateDo.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('98', '菜单管理-删除', '95', 'menu:del', '/menu/del.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('99', '菜单管理-列表', '95', 'menu:listJson', '/menu/listJson.do', '3', '0', null);
+INSERT INTO `Menu` VALUES ('100', '基础设施', '0', 'no', '', '1', '8', 'icon08.png');
+INSERT INTO `Menu` VALUES ('232', '数据字典', '100', 'dic:list', '/dic/list.do', '2', null, null);
+INSERT INTO `Menu` VALUES ('233', '数据字典-列表', '232', 'dic:list', '/dic/list.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('234', '数据字典-新增', '232', 'dic:addDo', '/dic/addDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('235', '数据字典-修改', '232', 'dic:updateDo', '/dic/updateDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('236', '数据字典-删除', '232', 'dic:del', '/dic/del.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('237', '加气记录', '28', 'fillingRecord:list', '/fillingRecord/list.do', '2', null, null);
+INSERT INTO `Menu` VALUES ('238', '加气记录-列表', '237', 'fillingRecord:list', '/fillingRecord/list.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('239', '加气记录-新增', '237', 'fillingRecord:addDo', '/fillingRecord/addDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('240', '加气记录-修改', '237', 'fillingRecord:updateDo', '/fillingRecord/updateDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('241', '加气记录-删除', '237', 'fillingRecord:del', '/fillingRecord/del.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('242', '价格记录', '28', 'priceList:list', '/priceList/list.do', '2', null, null);
+INSERT INTO `Menu` VALUES ('243', '价格记录-列表', '242', 'priceList:list', '/priceList/list.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('244', '价格记录-新增', '242', 'priceList:addDo', '/priceList/addDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('245', '价格记录-修改', '242', 'priceList:updateDo', '/priceList/updateDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('246', '价格记录-删除', '242', 'priceList:del', '/priceList/del.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('247', '充值记录', '28', 'rechargeRecord:list', '/rechargeRecord/list.do', '2', null, null);
+INSERT INTO `Menu` VALUES ('248', '充值记录-列表', '247', 'rechargeRecord:list', '/rechargeRecord/list.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('249', '充值记录-新增', '247', 'rechargeRecord:addDo', '/rechargeRecord/addDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('250', '充值记录-修改', '247', 'rechargeRecord:updateDo', '/rechargeRecord/updateDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('251', '充值记录-删除', '247', 'rechargeRecord:del', '/rechargeRecord/del.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('252', '上下班记录', '28', 'shiftRecord:list', '/shiftRecord/list.do', '2', null, null);
+INSERT INTO `Menu` VALUES ('253', '上下班记录-列表', '252', 'shiftRecord:list', '/shiftRecord/list.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('254', '上下班记录-新增', '252', 'shiftRecord:addDo', '/shiftRecord/addDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('255', '上下班记录-修改', '252', 'shiftRecord:updateDo', '/shiftRecord/updateDo.do', '3', null, null);
+INSERT INTO `Menu` VALUES ('256', '上下班记录-删除', '252', 'shiftRecord:del', '/shiftRecord/del.do', '3', null, null);
 
 -- ----------------------------
 -- Table structure for party
 -- ----------------------------
-DROP TABLE IF EXISTS `party`;
-CREATE TABLE `party` (
+DROP TABLE IF EXISTS `Party`;
+CREATE TABLE `Party` (
   `partyId` int(11) NOT NULL AUTO_INCREMENT,
   `createdByUser` int(11) DEFAULT NULL,
   `createdDate` varchar(255) DEFAULT NULL,
@@ -386,50 +386,50 @@ CREATE TABLE `party` (
 -- ----------------------------
 -- Records of party
 -- ----------------------------
-INSERT INTO `party` VALUES ('4', '1', '2015-01-07 20:55:14', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('10', '4', '2015-01-11 20:45:00', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('17', '4', '2015-01-15 14:05:33', 'SourcePoint', null, null, '3', '1');
-INSERT INTO `party` VALUES ('18', '4', '2015-01-15 14:24:34', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('24', '4', '2015-01-27 22:06:17', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('25', '4', '2015-02-03 13:52:05', 'Truck', null, null, '3', '1');
-INSERT INTO `party` VALUES ('26', '4', '2015-02-03 13:56:34', 'Truck', null, null, '3', '1');
-INSERT INTO `party` VALUES ('28', '4', '2017-12-30 09:32:55', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('29', '4', '2018-04-21 15:06:14', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('30', '4', '2018-05-24 22:50:56', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('31', '4', '2018-06-12 23:12:54', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('32', '4', '2018-06-12 23:16:18', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('33', '4', '2018-06-21 09:28:32', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('34', '4', '2018-07-06 14:53:57', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('35', '4', '2018-07-06 15:06:13', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('36', '4', '2018-07-06 15:07:20', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('37', '4', '2018-07-06 15:08:29', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('38', '4', '2018-07-06 15:11:15', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('39', '12', '2018-07-09 11:00:52', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('40', '12', '2018-07-09 11:01:28', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('41', '12', '2018-07-16 10:24:39', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('42', '12', '2018-07-16 10:25:21', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('43', '4', '2018-09-15 15:03:47', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('44', '4', '2018-09-15 15:05:08', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('45', '4', '2018-10-04 11:00:08', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('46', '4', '2018-10-22 09:47:56', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('47', '4', '2018-10-22 09:50:20', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('48', '4', '2018-10-22 14:14:41', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('49', '4', '2018-10-30 13:44:46', 'SourcePoint', null, null, '3', '1');
-INSERT INTO `party` VALUES ('50', '4', '2018-10-30 13:45:57', 'SourcePoint', null, null, '3', '1');
-INSERT INTO `party` VALUES ('51', '4', '2018-10-30 13:46:55', 'Corporation', null, null, '2', '1');
-INSERT INTO `party` VALUES ('52', '4', '2018-10-30 13:48:06', 'Corporation', null, null, '2', '1');
-INSERT INTO `party` VALUES ('56', '12', '2018-11-22 17:49:10', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('57', '12', '2018-11-22 17:51:23', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('58', '12', '2018-12-29 10:17:36', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('59', '4', '2019-01-01 11:48:23', 'EndPoint', null, null, '4', '1');
-INSERT INTO `party` VALUES ('60', '12', '2019-01-29 17:00:18', 'Person', null, null, '1', '1');
-INSERT INTO `party` VALUES ('61', '4', '2019-03-18 16:16:53', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('4', '1', '2015-01-07 20:55:14', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('10', '4', '2015-01-11 20:45:00', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('17', '4', '2015-01-15 14:05:33', 'SourcePoint', null, null, '3', '1');
+INSERT INTO `Party` VALUES ('18', '4', '2015-01-15 14:24:34', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('24', '4', '2015-01-27 22:06:17', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('25', '4', '2015-02-03 13:52:05', 'Truck', null, null, '3', '1');
+INSERT INTO `Party` VALUES ('26', '4', '2015-02-03 13:56:34', 'Truck', null, null, '3', '1');
+INSERT INTO `Party` VALUES ('28', '4', '2017-12-30 09:32:55', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('29', '4', '2018-04-21 15:06:14', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('30', '4', '2018-05-24 22:50:56', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('31', '4', '2018-06-12 23:12:54', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('32', '4', '2018-06-12 23:16:18', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('33', '4', '2018-06-21 09:28:32', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('34', '4', '2018-07-06 14:53:57', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('35', '4', '2018-07-06 15:06:13', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('36', '4', '2018-07-06 15:07:20', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('37', '4', '2018-07-06 15:08:29', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('38', '4', '2018-07-06 15:11:15', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('39', '12', '2018-07-09 11:00:52', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('40', '12', '2018-07-09 11:01:28', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('41', '12', '2018-07-16 10:24:39', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('42', '12', '2018-07-16 10:25:21', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('43', '4', '2018-09-15 15:03:47', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('44', '4', '2018-09-15 15:05:08', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('45', '4', '2018-10-04 11:00:08', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('46', '4', '2018-10-22 09:47:56', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('47', '4', '2018-10-22 09:50:20', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('48', '4', '2018-10-22 14:14:41', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('49', '4', '2018-10-30 13:44:46', 'SourcePoint', null, null, '3', '1');
+INSERT INTO `Party` VALUES ('50', '4', '2018-10-30 13:45:57', 'SourcePoint', null, null, '3', '1');
+INSERT INTO `Party` VALUES ('51', '4', '2018-10-30 13:46:55', 'Corporation', null, null, '2', '1');
+INSERT INTO `Party` VALUES ('52', '4', '2018-10-30 13:48:06', 'Corporation', null, null, '2', '1');
+INSERT INTO `Party` VALUES ('56', '12', '2018-11-22 17:49:10', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('57', '12', '2018-11-22 17:51:23', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('58', '12', '2018-12-29 10:17:36', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('59', '4', '2019-01-01 11:48:23', 'EndPoint', null, null, '4', '1');
+INSERT INTO `Party` VALUES ('60', '12', '2019-01-29 17:00:18', 'Person', null, null, '1', '1');
+INSERT INTO `Party` VALUES ('61', '4', '2019-03-18 16:16:53', 'Person', null, null, '1', '1');
 
 -- ----------------------------
 -- Table structure for partyattribute
 -- ----------------------------
-DROP TABLE IF EXISTS `partyattribute`;
-CREATE TABLE `partyattribute` (
+DROP TABLE IF EXISTS `PartyAttribute`;
+CREATE TABLE `PartyAttribute` (
   `partyAttributeId` int(11) NOT NULL AUTO_INCREMENT,
   `attrName` varchar(255) DEFAULT NULL,
   `attrValue` varchar(255) DEFAULT NULL,
@@ -444,8 +444,8 @@ CREATE TABLE `partyattribute` (
 -- ----------------------------
 -- Table structure for partytype
 -- ----------------------------
-DROP TABLE IF EXISTS `partytype`;
-CREATE TABLE `partytype` (
+DROP TABLE IF EXISTS `PartyType`;
+CREATE TABLE `PartyType` (
   `partyTypeId` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) DEFAULT NULL,
   `hasTable` varchar(255) DEFAULT NULL,
@@ -456,14 +456,14 @@ CREATE TABLE `partytype` (
 -- ----------------------------
 -- Records of partytype
 -- ----------------------------
-INSERT INTO `partytype` VALUES ('1', 'Person', 'Y', null);
-INSERT INTO `partytype` VALUES ('2', 'Corporation', 'Y', null);
+INSERT INTO `PartyType` VALUES ('1', 'Person', 'Y', null);
+INSERT INTO `PartyType` VALUES ('2', 'Corporation', 'Y', null);
 
 -- ----------------------------
 -- Table structure for person
 -- ----------------------------
-DROP TABLE IF EXISTS `person`;
-CREATE TABLE `person` (
+DROP TABLE IF EXISTS `Person`;
+CREATE TABLE `Person` (
   `partyId` int(11) NOT NULL AUTO_INCREMENT,
   `QQ` varchar(255) DEFAULT NULL,
   `active` varchar(255) DEFAULT NULL,
@@ -513,13 +513,13 @@ CREATE TABLE `person` (
 -- ----------------------------
 -- Records of person
 -- ----------------------------
-INSERT INTO `person` VALUES ('4', '2122', null, null, '2015-01-07', null, null, '1', null, '514580856@qq.com', null, null, '管理员', null, '女', null, '否', null, null, '2019-05-24 22:47:08', null, null, null, '3122', null, null, null, null, null, null, null, 'JdVa0oOqQAr0ZMdtcTwHrQ==', null, null, null, null, null, null, null, 'admin', null, null, 'oW2s4005yfhPKHBWd8W0lcVKyAhI');
+INSERT INTO `Person` VALUES ('4', '2122', null, null, '2015-01-07', null, null, '1', null, '514580856@qq.com', null, null, '管理员', null, '女', null, '否', null, null, '2019-05-24 22:47:08', null, null, null, '3122', null, null, null, null, null, null, null, 'JdVa0oOqQAr0ZMdtcTwHrQ==', null, null, null, null, null, null, null, 'admin', null, null, 'oW2s4005yfhPKHBWd8W0lcVKyAhI');
 
 -- ----------------------------
 -- Table structure for personrole
 -- ----------------------------
-DROP TABLE IF EXISTS `personrole`;
-CREATE TABLE `personrole` (
+DROP TABLE IF EXISTS `PersonRole`;
+CREATE TABLE `PersonRole` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `personId` int(11) DEFAULT NULL,
   `roleId` int(11) DEFAULT NULL,
@@ -529,75 +529,75 @@ CREATE TABLE `personrole` (
 -- ----------------------------
 -- Records of personrole
 -- ----------------------------
-INSERT INTO `personrole` VALUES ('1', '1', '2');
-INSERT INTO `personrole` VALUES ('2', '2', '1');
-INSERT INTO `personrole` VALUES ('11', '8', '7');
-INSERT INTO `personrole` VALUES ('12', '4', '2');
-INSERT INTO `personrole` VALUES ('23', '5', '3');
-INSERT INTO `personrole` VALUES ('24', '5', '1');
-INSERT INTO `personrole` VALUES ('26', '9', '8');
-INSERT INTO `personrole` VALUES ('28', '11', '9');
-INSERT INTO `personrole` VALUES ('29', '10', '8');
-INSERT INTO `personrole` VALUES ('38', '14', '8');
-INSERT INTO `personrole` VALUES ('39', '14', '4');
-INSERT INTO `personrole` VALUES ('48', '13', '8');
-INSERT INTO `personrole` VALUES ('49', '13', '4');
-INSERT INTO `personrole` VALUES ('50', '13', '3');
-INSERT INTO `personrole` VALUES ('65', '22', '8');
-INSERT INTO `personrole` VALUES ('66', '22', '3');
-INSERT INTO `personrole` VALUES ('67', '22', '1');
-INSERT INTO `personrole` VALUES ('68', '21', '8');
-INSERT INTO `personrole` VALUES ('69', '21', '3');
-INSERT INTO `personrole` VALUES ('70', '21', '1');
-INSERT INTO `personrole` VALUES ('71', '7', '8');
-INSERT INTO `personrole` VALUES ('72', '7', '3');
-INSERT INTO `personrole` VALUES ('73', '7', '1');
-INSERT INTO `personrole` VALUES ('74', '23', '8');
-INSERT INTO `personrole` VALUES ('75', '23', '3');
-INSERT INTO `personrole` VALUES ('76', '23', '1');
-INSERT INTO `personrole` VALUES ('107', '25', '10');
-INSERT INTO `personrole` VALUES ('108', '24', '10');
-INSERT INTO `personrole` VALUES ('118', '12', '10');
-INSERT INTO `personrole` VALUES ('119', '12', '8');
-INSERT INTO `personrole` VALUES ('120', '12', '6');
-INSERT INTO `personrole` VALUES ('121', '12', '5');
-INSERT INTO `personrole` VALUES ('122', '12', '3');
-INSERT INTO `personrole` VALUES ('123', '12', '2');
-INSERT INTO `personrole` VALUES ('124', '12', '1');
-INSERT INTO `personrole` VALUES ('125', '18', '8');
-INSERT INTO `personrole` VALUES ('126', '18', '3');
-INSERT INTO `personrole` VALUES ('127', '17', '8');
-INSERT INTO `personrole` VALUES ('128', '17', '3');
-INSERT INTO `personrole` VALUES ('129', '6', '8');
-INSERT INTO `personrole` VALUES ('130', '6', '3');
-INSERT INTO `personrole` VALUES ('131', '19', '8');
-INSERT INTO `personrole` VALUES ('132', '19', '3');
-INSERT INTO `personrole` VALUES ('133', '20', '8');
-INSERT INTO `personrole` VALUES ('134', '20', '3');
-INSERT INTO `personrole` VALUES ('135', '27', '10');
-INSERT INTO `personrole` VALUES ('136', '27', '8');
-INSERT INTO `personrole` VALUES ('137', '27', '5');
-INSERT INTO `personrole` VALUES ('138', '27', '1');
-INSERT INTO `personrole` VALUES ('144', '26', '11');
-INSERT INTO `personrole` VALUES ('145', '26', '8');
-INSERT INTO `personrole` VALUES ('146', '26', '6');
-INSERT INTO `personrole` VALUES ('147', '26', '5');
-INSERT INTO `personrole` VALUES ('148', '26', '3');
-INSERT INTO `personrole` VALUES ('149', '26', '1');
-INSERT INTO `personrole` VALUES ('157', '28', '11');
-INSERT INTO `personrole` VALUES ('158', '28', '1');
-INSERT INTO `personrole` VALUES ('159', '15', '8');
-INSERT INTO `personrole` VALUES ('160', '15', '5');
-INSERT INTO `personrole` VALUES ('161', '15', '3');
-INSERT INTO `personrole` VALUES ('167', '16', '11');
-INSERT INTO `personrole` VALUES ('168', '16', '5');
-INSERT INTO `personrole` VALUES ('171', '29', '12');
+INSERT INTO `PersonRole` VALUES ('1', '1', '2');
+INSERT INTO `PersonRole` VALUES ('2', '2', '1');
+INSERT INTO `PersonRole` VALUES ('11', '8', '7');
+INSERT INTO `PersonRole` VALUES ('12', '4', '2');
+INSERT INTO `PersonRole` VALUES ('23', '5', '3');
+INSERT INTO `PersonRole` VALUES ('24', '5', '1');
+INSERT INTO `PersonRole` VALUES ('26', '9', '8');
+INSERT INTO `PersonRole` VALUES ('28', '11', '9');
+INSERT INTO `PersonRole` VALUES ('29', '10', '8');
+INSERT INTO `PersonRole` VALUES ('38', '14', '8');
+INSERT INTO `PersonRole` VALUES ('39', '14', '4');
+INSERT INTO `PersonRole` VALUES ('48', '13', '8');
+INSERT INTO `PersonRole` VALUES ('49', '13', '4');
+INSERT INTO `PersonRole` VALUES ('50', '13', '3');
+INSERT INTO `PersonRole` VALUES ('65', '22', '8');
+INSERT INTO `PersonRole` VALUES ('66', '22', '3');
+INSERT INTO `PersonRole` VALUES ('67', '22', '1');
+INSERT INTO `PersonRole` VALUES ('68', '21', '8');
+INSERT INTO `PersonRole` VALUES ('69', '21', '3');
+INSERT INTO `PersonRole` VALUES ('70', '21', '1');
+INSERT INTO `PersonRole` VALUES ('71', '7', '8');
+INSERT INTO `PersonRole` VALUES ('72', '7', '3');
+INSERT INTO `PersonRole` VALUES ('73', '7', '1');
+INSERT INTO `PersonRole` VALUES ('74', '23', '8');
+INSERT INTO `PersonRole` VALUES ('75', '23', '3');
+INSERT INTO `PersonRole` VALUES ('76', '23', '1');
+INSERT INTO `PersonRole` VALUES ('107', '25', '10');
+INSERT INTO `PersonRole` VALUES ('108', '24', '10');
+INSERT INTO `PersonRole` VALUES ('118', '12', '10');
+INSERT INTO `PersonRole` VALUES ('119', '12', '8');
+INSERT INTO `PersonRole` VALUES ('120', '12', '6');
+INSERT INTO `PersonRole` VALUES ('121', '12', '5');
+INSERT INTO `PersonRole` VALUES ('122', '12', '3');
+INSERT INTO `PersonRole` VALUES ('123', '12', '2');
+INSERT INTO `PersonRole` VALUES ('124', '12', '1');
+INSERT INTO `PersonRole` VALUES ('125', '18', '8');
+INSERT INTO `PersonRole` VALUES ('126', '18', '3');
+INSERT INTO `PersonRole` VALUES ('127', '17', '8');
+INSERT INTO `PersonRole` VALUES ('128', '17', '3');
+INSERT INTO `PersonRole` VALUES ('129', '6', '8');
+INSERT INTO `PersonRole` VALUES ('130', '6', '3');
+INSERT INTO `PersonRole` VALUES ('131', '19', '8');
+INSERT INTO `PersonRole` VALUES ('132', '19', '3');
+INSERT INTO `PersonRole` VALUES ('133', '20', '8');
+INSERT INTO `PersonRole` VALUES ('134', '20', '3');
+INSERT INTO `PersonRole` VALUES ('135', '27', '10');
+INSERT INTO `PersonRole` VALUES ('136', '27', '8');
+INSERT INTO `PersonRole` VALUES ('137', '27', '5');
+INSERT INTO `PersonRole` VALUES ('138', '27', '1');
+INSERT INTO `PersonRole` VALUES ('144', '26', '11');
+INSERT INTO `PersonRole` VALUES ('145', '26', '8');
+INSERT INTO `PersonRole` VALUES ('146', '26', '6');
+INSERT INTO `PersonRole` VALUES ('147', '26', '5');
+INSERT INTO `PersonRole` VALUES ('148', '26', '3');
+INSERT INTO `PersonRole` VALUES ('149', '26', '1');
+INSERT INTO `PersonRole` VALUES ('157', '28', '11');
+INSERT INTO `PersonRole` VALUES ('158', '28', '1');
+INSERT INTO `PersonRole` VALUES ('159', '15', '8');
+INSERT INTO `PersonRole` VALUES ('160', '15', '5');
+INSERT INTO `PersonRole` VALUES ('161', '15', '3');
+INSERT INTO `PersonRole` VALUES ('167', '16', '11');
+INSERT INTO `PersonRole` VALUES ('168', '16', '5');
+INSERT INTO `PersonRole` VALUES ('171', '29', '12');
 
 -- ----------------------------
 -- Table structure for pricelist
 -- ----------------------------
-DROP TABLE IF EXISTS `pricelist`;
-CREATE TABLE `pricelist` (
+DROP TABLE IF EXISTS `PriceList`;
+CREATE TABLE `PriceList` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belgon2PartyId` int(11) DEFAULT NULL,
   `gunNo` varchar(255) DEFAULT NULL,
@@ -616,8 +616,8 @@ CREATE TABLE `pricelist` (
 -- ----------------------------
 -- Table structure for quotation
 -- ----------------------------
-DROP TABLE IF EXISTS `quotation`;
-CREATE TABLE `quotation` (
+DROP TABLE IF EXISTS `Quotation`;
+CREATE TABLE `Quotation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cusCorpPartyId` int(11) DEFAULT NULL,
   `effectString` varchar(255) DEFAULT NULL,
@@ -635,8 +635,8 @@ CREATE TABLE `quotation` (
 -- ----------------------------
 -- Table structure for quotationitem
 -- ----------------------------
-DROP TABLE IF EXISTS `quotationitem`;
-CREATE TABLE `quotationitem` (
+DROP TABLE IF EXISTS `QuotationItem`;
+CREATE TABLE `QuotationItem` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cifPrice` int(11) DEFAULT NULL,
   `endPointPartyId` int(11) DEFAULT NULL,
@@ -653,8 +653,8 @@ CREATE TABLE `quotationitem` (
 -- ----------------------------
 -- Table structure for rechargerecord
 -- ----------------------------
-DROP TABLE IF EXISTS `rechargerecord`;
-CREATE TABLE `rechargerecord` (
+DROP TABLE IF EXISTS `RechargeRecord`;
+CREATE TABLE `RechargeRecord` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `balance` decimal(19,2) DEFAULT NULL,
   `belgon2PartyId` int(11) DEFAULT NULL,
@@ -679,8 +679,8 @@ CREATE TABLE `rechargerecord` (
 -- ----------------------------
 -- Table structure for role
 -- ----------------------------
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE `role` (
+DROP TABLE IF EXISTS `Role`;
+CREATE TABLE `Role` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -689,14 +689,14 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', '普通');
-INSERT INTO `role` VALUES ('2', '管理员');
+INSERT INTO `Role` VALUES ('1', '普通');
+INSERT INTO `Role` VALUES ('2', '管理员');
 
 -- ----------------------------
 -- Table structure for rolemenu
 -- ----------------------------
-DROP TABLE IF EXISTS `rolemenu`;
-CREATE TABLE `rolemenu` (
+DROP TABLE IF EXISTS `RoleMenu`;
+CREATE TABLE `RoleMenu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `menuId` int(11) DEFAULT NULL,
   `roleId` int(11) DEFAULT NULL,
@@ -706,80 +706,80 @@ CREATE TABLE `rolemenu` (
 -- ----------------------------
 -- Records of rolemenu
 -- ----------------------------
-INSERT INTO `rolemenu` VALUES ('7637', '28', '1');
-INSERT INTO `rolemenu` VALUES ('7638', '237', '1');
-INSERT INTO `rolemenu` VALUES ('7639', '238', '1');
-INSERT INTO `rolemenu` VALUES ('7640', '239', '1');
-INSERT INTO `rolemenu` VALUES ('7641', '240', '1');
-INSERT INTO `rolemenu` VALUES ('7642', '241', '1');
-INSERT INTO `rolemenu` VALUES ('7643', '242', '1');
-INSERT INTO `rolemenu` VALUES ('7644', '243', '1');
-INSERT INTO `rolemenu` VALUES ('7645', '244', '1');
-INSERT INTO `rolemenu` VALUES ('7646', '245', '1');
-INSERT INTO `rolemenu` VALUES ('7647', '246', '1');
-INSERT INTO `rolemenu` VALUES ('7648', '247', '1');
-INSERT INTO `rolemenu` VALUES ('7649', '248', '1');
-INSERT INTO `rolemenu` VALUES ('7650', '249', '1');
-INSERT INTO `rolemenu` VALUES ('7651', '250', '1');
-INSERT INTO `rolemenu` VALUES ('7652', '251', '1');
-INSERT INTO `rolemenu` VALUES ('7653', '252', '1');
-INSERT INTO `rolemenu` VALUES ('7654', '253', '1');
-INSERT INTO `rolemenu` VALUES ('7655', '254', '1');
-INSERT INTO `rolemenu` VALUES ('7656', '255', '1');
-INSERT INTO `rolemenu` VALUES ('7657', '256', '1');
-INSERT INTO `rolemenu` VALUES ('7658', '28', '2');
-INSERT INTO `rolemenu` VALUES ('7659', '237', '2');
-INSERT INTO `rolemenu` VALUES ('7660', '238', '2');
-INSERT INTO `rolemenu` VALUES ('7661', '239', '2');
-INSERT INTO `rolemenu` VALUES ('7662', '240', '2');
-INSERT INTO `rolemenu` VALUES ('7663', '241', '2');
-INSERT INTO `rolemenu` VALUES ('7664', '242', '2');
-INSERT INTO `rolemenu` VALUES ('7665', '243', '2');
-INSERT INTO `rolemenu` VALUES ('7666', '244', '2');
-INSERT INTO `rolemenu` VALUES ('7667', '245', '2');
-INSERT INTO `rolemenu` VALUES ('7668', '246', '2');
-INSERT INTO `rolemenu` VALUES ('7669', '247', '2');
-INSERT INTO `rolemenu` VALUES ('7670', '248', '2');
-INSERT INTO `rolemenu` VALUES ('7671', '249', '2');
-INSERT INTO `rolemenu` VALUES ('7672', '250', '2');
-INSERT INTO `rolemenu` VALUES ('7673', '251', '2');
-INSERT INTO `rolemenu` VALUES ('7674', '252', '2');
-INSERT INTO `rolemenu` VALUES ('7675', '253', '2');
-INSERT INTO `rolemenu` VALUES ('7676', '254', '2');
-INSERT INTO `rolemenu` VALUES ('7677', '255', '2');
-INSERT INTO `rolemenu` VALUES ('7678', '256', '2');
-INSERT INTO `rolemenu` VALUES ('7679', '100', '2');
-INSERT INTO `rolemenu` VALUES ('7680', '11', '2');
-INSERT INTO `rolemenu` VALUES ('7681', '12', '2');
-INSERT INTO `rolemenu` VALUES ('7682', '13', '2');
-INSERT INTO `rolemenu` VALUES ('7683', '14', '2');
-INSERT INTO `rolemenu` VALUES ('7684', '20', '2');
-INSERT INTO `rolemenu` VALUES ('7685', '65', '2');
-INSERT INTO `rolemenu` VALUES ('7686', '66', '2');
-INSERT INTO `rolemenu` VALUES ('7687', '67', '2');
-INSERT INTO `rolemenu` VALUES ('7688', '68', '2');
-INSERT INTO `rolemenu` VALUES ('7689', '69', '2');
-INSERT INTO `rolemenu` VALUES ('7690', '90', '2');
-INSERT INTO `rolemenu` VALUES ('7691', '91', '2');
-INSERT INTO `rolemenu` VALUES ('7692', '92', '2');
-INSERT INTO `rolemenu` VALUES ('7693', '93', '2');
-INSERT INTO `rolemenu` VALUES ('7694', '94', '2');
-INSERT INTO `rolemenu` VALUES ('7695', '95', '2');
-INSERT INTO `rolemenu` VALUES ('7696', '96', '2');
-INSERT INTO `rolemenu` VALUES ('7697', '97', '2');
-INSERT INTO `rolemenu` VALUES ('7698', '98', '2');
-INSERT INTO `rolemenu` VALUES ('7699', '99', '2');
-INSERT INTO `rolemenu` VALUES ('7700', '232', '2');
-INSERT INTO `rolemenu` VALUES ('7701', '233', '2');
-INSERT INTO `rolemenu` VALUES ('7702', '234', '2');
-INSERT INTO `rolemenu` VALUES ('7703', '235', '2');
-INSERT INTO `rolemenu` VALUES ('7704', '236', '2');
+INSERT INTO `RoleMenu` VALUES ('7637', '28', '1');
+INSERT INTO `RoleMenu` VALUES ('7638', '237', '1');
+INSERT INTO `RoleMenu` VALUES ('7639', '238', '1');
+INSERT INTO `RoleMenu` VALUES ('7640', '239', '1');
+INSERT INTO `RoleMenu` VALUES ('7641', '240', '1');
+INSERT INTO `RoleMenu` VALUES ('7642', '241', '1');
+INSERT INTO `RoleMenu` VALUES ('7643', '242', '1');
+INSERT INTO `RoleMenu` VALUES ('7644', '243', '1');
+INSERT INTO `RoleMenu` VALUES ('7645', '244', '1');
+INSERT INTO `RoleMenu` VALUES ('7646', '245', '1');
+INSERT INTO `RoleMenu` VALUES ('7647', '246', '1');
+INSERT INTO `RoleMenu` VALUES ('7648', '247', '1');
+INSERT INTO `RoleMenu` VALUES ('7649', '248', '1');
+INSERT INTO `RoleMenu` VALUES ('7650', '249', '1');
+INSERT INTO `RoleMenu` VALUES ('7651', '250', '1');
+INSERT INTO `RoleMenu` VALUES ('7652', '251', '1');
+INSERT INTO `RoleMenu` VALUES ('7653', '252', '1');
+INSERT INTO `RoleMenu` VALUES ('7654', '253', '1');
+INSERT INTO `RoleMenu` VALUES ('7655', '254', '1');
+INSERT INTO `RoleMenu` VALUES ('7656', '255', '1');
+INSERT INTO `RoleMenu` VALUES ('7657', '256', '1');
+INSERT INTO `RoleMenu` VALUES ('7658', '28', '2');
+INSERT INTO `RoleMenu` VALUES ('7659', '237', '2');
+INSERT INTO `RoleMenu` VALUES ('7660', '238', '2');
+INSERT INTO `RoleMenu` VALUES ('7661', '239', '2');
+INSERT INTO `RoleMenu` VALUES ('7662', '240', '2');
+INSERT INTO `RoleMenu` VALUES ('7663', '241', '2');
+INSERT INTO `RoleMenu` VALUES ('7664', '242', '2');
+INSERT INTO `RoleMenu` VALUES ('7665', '243', '2');
+INSERT INTO `RoleMenu` VALUES ('7666', '244', '2');
+INSERT INTO `RoleMenu` VALUES ('7667', '245', '2');
+INSERT INTO `RoleMenu` VALUES ('7668', '246', '2');
+INSERT INTO `RoleMenu` VALUES ('7669', '247', '2');
+INSERT INTO `RoleMenu` VALUES ('7670', '248', '2');
+INSERT INTO `RoleMenu` VALUES ('7671', '249', '2');
+INSERT INTO `RoleMenu` VALUES ('7672', '250', '2');
+INSERT INTO `RoleMenu` VALUES ('7673', '251', '2');
+INSERT INTO `RoleMenu` VALUES ('7674', '252', '2');
+INSERT INTO `RoleMenu` VALUES ('7675', '253', '2');
+INSERT INTO `RoleMenu` VALUES ('7676', '254', '2');
+INSERT INTO `RoleMenu` VALUES ('7677', '255', '2');
+INSERT INTO `RoleMenu` VALUES ('7678', '256', '2');
+INSERT INTO `RoleMenu` VALUES ('7679', '100', '2');
+INSERT INTO `RoleMenu` VALUES ('7680', '11', '2');
+INSERT INTO `RoleMenu` VALUES ('7681', '12', '2');
+INSERT INTO `RoleMenu` VALUES ('7682', '13', '2');
+INSERT INTO `RoleMenu` VALUES ('7683', '14', '2');
+INSERT INTO `RoleMenu` VALUES ('7684', '20', '2');
+INSERT INTO `RoleMenu` VALUES ('7685', '65', '2');
+INSERT INTO `RoleMenu` VALUES ('7686', '66', '2');
+INSERT INTO `RoleMenu` VALUES ('7687', '67', '2');
+INSERT INTO `RoleMenu` VALUES ('7688', '68', '2');
+INSERT INTO `RoleMenu` VALUES ('7689', '69', '2');
+INSERT INTO `RoleMenu` VALUES ('7690', '90', '2');
+INSERT INTO `RoleMenu` VALUES ('7691', '91', '2');
+INSERT INTO `RoleMenu` VALUES ('7692', '92', '2');
+INSERT INTO `RoleMenu` VALUES ('7693', '93', '2');
+INSERT INTO `RoleMenu` VALUES ('7694', '94', '2');
+INSERT INTO `RoleMenu` VALUES ('7695', '95', '2');
+INSERT INTO `RoleMenu` VALUES ('7696', '96', '2');
+INSERT INTO `RoleMenu` VALUES ('7697', '97', '2');
+INSERT INTO `RoleMenu` VALUES ('7698', '98', '2');
+INSERT INTO `RoleMenu` VALUES ('7699', '99', '2');
+INSERT INTO `RoleMenu` VALUES ('7700', '232', '2');
+INSERT INTO `RoleMenu` VALUES ('7701', '233', '2');
+INSERT INTO `RoleMenu` VALUES ('7702', '234', '2');
+INSERT INTO `RoleMenu` VALUES ('7703', '235', '2');
+INSERT INTO `RoleMenu` VALUES ('7704', '236', '2');
 
 -- ----------------------------
 -- Table structure for route
 -- ----------------------------
-DROP TABLE IF EXISTS `route`;
-CREATE TABLE `route` (
+DROP TABLE IF EXISTS `Route`;
+CREATE TABLE `Route` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `addressId1` int(11) DEFAULT NULL,
   `addressId2` int(11) DEFAULT NULL,
@@ -795,8 +795,8 @@ CREATE TABLE `route` (
 -- ----------------------------
 -- Table structure for shiftrecord
 -- ----------------------------
-DROP TABLE IF EXISTS `shiftrecord`;
-CREATE TABLE `shiftrecord` (
+DROP TABLE IF EXISTS `ShiftRecord`;
+CREATE TABLE `ShiftRecord` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belgon2PartyId` int(11) DEFAULT NULL,
   `confirmTime` datetime DEFAULT NULL,
@@ -816,8 +816,8 @@ CREATE TABLE `shiftrecord` (
 -- ----------------------------
 -- Table structure for shippingorder
 -- ----------------------------
-DROP TABLE IF EXISTS `shippingorder`;
-CREATE TABLE `shippingorder` (
+DROP TABLE IF EXISTS `ShippingOrder`;
+CREATE TABLE `ShippingOrder` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `driverName` varchar(255) DEFAULT NULL,
   `driverPartyId` int(11) DEFAULT NULL,
@@ -855,8 +855,8 @@ CREATE TABLE `shippingorder` (
 -- ----------------------------
 -- Table structure for shippingorderunload
 -- ----------------------------
-DROP TABLE IF EXISTS `shippingorderunload`;
-CREATE TABLE `shippingorderunload` (
+DROP TABLE IF EXISTS `ShippingOrderUnload`;
+CREATE TABLE `ShippingOrderUnload` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `arrivedTime` varchar(255) DEFAULT NULL,
   `endUnload` varchar(255) DEFAULT NULL,
@@ -878,8 +878,8 @@ CREATE TABLE `shippingorderunload` (
 -- ----------------------------
 -- Table structure for sourcepoint
 -- ----------------------------
-DROP TABLE IF EXISTS `sourcepoint`;
-CREATE TABLE `sourcepoint` (
+DROP TABLE IF EXISTS `SourcePoint`;
+CREATE TABLE `SourcePoint` (
   `partyId` int(11) NOT NULL,
   `addressId` varchar(255) DEFAULT NULL,
   `annualAbility` decimal(19,2) DEFAULT NULL,
@@ -901,8 +901,8 @@ CREATE TABLE `sourcepoint` (
 -- ----------------------------
 -- Table structure for supplier
 -- ----------------------------
-DROP TABLE IF EXISTS `supplier`;
-CREATE TABLE `supplier` (
+DROP TABLE IF EXISTS `Supplier`;
+CREATE TABLE `Supplier` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belong2CorpPartyId` int(11) DEFAULT NULL,
   `bizManager` int(11) DEFAULT NULL,
@@ -922,8 +922,8 @@ CREATE TABLE `supplier` (
 -- ----------------------------
 -- Table structure for transporter
 -- ----------------------------
-DROP TABLE IF EXISTS `transporter`;
-CREATE TABLE `transporter` (
+DROP TABLE IF EXISTS `Transporter`;
+CREATE TABLE `Transporter` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `belgon2PartyId` int(11) DEFAULT NULL,
   `bizManager` int(11) DEFAULT NULL,
@@ -944,8 +944,8 @@ CREATE TABLE `transporter` (
 -- ----------------------------
 -- Table structure for truck
 -- ----------------------------
-DROP TABLE IF EXISTS `truck`;
-CREATE TABLE `truck` (
+DROP TABLE IF EXISTS `Truck`;
+CREATE TABLE `Truck` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `corpPartyId` int(11) DEFAULT NULL,
   `lastTankerNo` varchar(255) DEFAULT NULL,

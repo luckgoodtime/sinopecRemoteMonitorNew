@@ -81,7 +81,9 @@ public class OkHttpClientUtil {
 		  + "data: [{  \"recordId\": \"36\",  \"carNo\": \"01000411200000000002\",  \"holderName\": \"李四\",  \"operateTime\": \"2019-05-08 21:22:20\",  \"bizAmount\": \"3600.00\",  \"rebate\": \"0.00\",  \"balance\": \"7200.00\",  \"cardType\": \"用户卡\",  \"bizType\": \"充值\",  \"stationNo\": \"10-0001\",  \"stationName\": \"朗润集团\"},{  \"recordId\": \"37\",  \"carNo\": \"01000411200000000005\",  \"holderName\": \"王五\",  \"operateTime\": \"2019-05-08 23:03:11\",  \"bizAmount\": \"-1200.00\",  \"rebate\": \"0.00\",  \"balance\": \"500.00\",  \"cardType\": \"用户卡\",  \"bizType\": \"扣款\",  \"stationNo\": \"10-0001\",  \"stationName\": \"朗润集团\"},{  \"recordId\": \"38\",  \"carNo\": \"01000511200000000009\",  \"holderName\": \"海南公交集团\",  \"operateTime\": \"2019-05-09 11:45:21\",  \"bizAmount\": \"-700.00\",  \"rebate\": \"0.00\",  \"balance\": \"0.00\",  \"cardType\": \"公司账户\",  \"bizType\": \"注销\",  \"stationNo\": \"10-0001\",  \"stationName\": \"朗润集团\"}]"
 		  + "}";
 		  
+		  //String url = "http://47.93.246.231:8084/gasStation/acceptStationData.do";
 		  String url = "http://localhost:8080/gasStation/acceptStationData.do";
+
 		  String message = OkHttpClientUtil.httpPostJson(url,s);
 		  
 		  System.out.println(message);
