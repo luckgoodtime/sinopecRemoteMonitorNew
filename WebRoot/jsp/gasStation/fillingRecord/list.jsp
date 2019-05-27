@@ -116,9 +116,27 @@ function searchForm() {
 			
 			<form id="searchForm">
 				<ul class="prosearch">
-					<li>持卡人姓名 ： <input name="holderName" type="text"
-						class="scinput" /> <input type="button" onclick="searchForm();"
-						class="sure" value="查询" />
+					<li>
+						持卡人姓名 ： <input name="holderName" type="text" class="scinput" /> 
+						加气开始时间 ： <input  name="fillTimeBegin"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						加气结束时间 ： <input  name="fillTimeEnd"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						卡类型 ： <select name="cardType" class="scinput" style="opacity:100;width: 80px;">
+									<option value="">全部</option>
+									<c:forEach items="${cardTypeList}" var="dic">
+		                                <option <c:if test="${o.gasType==dic.value}">selected="selected"</c:if> value="${dic.value}">${dic.des}</option>
+		                            </c:forEach>	
+								</select>
+							
+									
+						 加气类型： <select name="fillType" class="scinput" style="opacity:100;width: 80px;">
+									<option value="">全部</option>
+									<c:forEach items="${fillTypeList}" var="dic">
+		                                <option <c:if test="${o.gasType==dic.value}">selected="selected"</c:if> value="${dic.value}">${dic.des}</option>
+		                            </c:forEach>	
+								</select>
+						
+						
+						<input type="button" onclick="searchForm();" class="sure" value="查询" />
 					</li>
 				</ul>
 			</form>

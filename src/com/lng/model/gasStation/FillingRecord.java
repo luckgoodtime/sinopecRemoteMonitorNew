@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -39,6 +40,12 @@ public class FillingRecord {
 		@Column(length=64)
 	    private String stationName;//加气站名称
 	    private Integer belgon2PartyId;//公司
+	    
+	    @Transient
+	    private String fillTimeBegin;//加气开始时间
+	    @Transient
+	    private String fillTimeEnd;//加气结束时间
+	    
 	    
 	    
 		public Integer getId() {
@@ -161,6 +168,18 @@ public class FillingRecord {
 		}
 		public void setBelgon2PartyId(Integer belgon2PartyId) {
 			this.belgon2PartyId = belgon2PartyId;
+		}
+		public String getFillTimeBegin() {
+			return fillTimeBegin;
+		}
+		public void setFillTimeBegin(String fillTimeBegin) {
+			this.fillTimeBegin = fillTimeBegin;
+		}
+		public String getFillTimeEnd() {
+			return fillTimeEnd;
+		}
+		public void setFillTimeEnd(String fillTimeEnd) {
+			this.fillTimeEnd = fillTimeEnd;
 		}
 	    
 		

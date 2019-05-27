@@ -13,10 +13,12 @@ import com.lng.model.gasStation.PriceList;
 import com.lng.model.gasStation.RechargeRecord;
 import com.lng.model.gasStation.ShiftRecord;
 import com.lng.service.main.BaseService;
+import com.lng.util.Util;
 
 @Service
 public class GasStationService extends BaseService {
 
+	//加气记录
 	public Map<String, Object> getListForFillingRecord(FillingRecord fillingRecord, Person person) {
 
 		StringBuffer hql = new StringBuffer("from FillingRecord t where 1=1");
@@ -26,6 +28,30 @@ public class GasStationService extends BaseService {
 			hql.append(" and holderName like ?");
 			paramList.add(fillingRecord.getHolderName() + "%");
 		}
+		if (StringUtils.isNotBlank(fillingRecord.getFillTimeBegin())) {
+			hql.append(" and fillTime >= ?");
+			paramList.add(Util.strtoDate(fillingRecord.getFillTimeBegin()));
+		}
+		if (StringUtils.isNotBlank(fillingRecord.getFillTimeEnd())) {
+			hql.append(" and fillTime <= ?");
+			paramList.add(Util.strtoDate(fillingRecord.getFillTimeEnd()));
+		}
+		if (StringUtils.isNotBlank(fillingRecord.getPlateNo())) {
+			hql.append(" and plateNo like ?");
+			paramList.add(fillingRecord.getPlateNo() + "%");
+		}
+		if (StringUtils.isNotBlank(fillingRecord.getCardType())) {
+			hql.append(" and cardType = ?");
+			paramList.add(fillingRecord.getCardType());
+		}
+		if (StringUtils.isNotBlank(fillingRecord.getFillType())) {
+			hql.append(" and fillType = ?");
+			paramList.add(fillingRecord.getFillType());
+		}
+		
+		
+		
+		
 
 		hql.append(" order by id desc");
 

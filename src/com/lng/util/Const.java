@@ -126,4 +126,8 @@ public class Const {
     
     public static final String GAS_TYPE = "gasType";//气品
     public static final String GAS_TYPE_NONSTANDARD = "gasTypeNonstandard";//气品(非标准)
+    
+    
+    public static final String CARD_TYPE = "cardType";//卡类型
+    public static final String FILL_TYPE = "fillType";//加气类型
 }
