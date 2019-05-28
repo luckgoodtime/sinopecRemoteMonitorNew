@@ -58,6 +58,8 @@ public class GasStationService extends BaseService {
 		return this.getListForPageDefaultAjax(hql.toString(), paramList.toArray());
 	}
 
+	
+	//价格表
 	public Map<String, Object> getListForPriceList(PriceList priceList, Person person) {
 
 		StringBuffer hql = new StringBuffer("from PriceList t where 1=1");
@@ -67,12 +69,29 @@ public class GasStationService extends BaseService {
 			hql.append(" and gunNo like ?");
 			paramList.add(priceList.getGunNo() + "%");
 		}
-
+		if (StringUtils.isNotBlank(priceList.getPublishTimeBegin())) {
+			hql.append(" and publishTime >= ?");
+			paramList.add(Util.strtoDate(priceList.getPublishTimeBegin()));
+		}
+		if (StringUtils.isNotBlank(priceList.getPublishTimeEnd())) {
+			hql.append(" and publishTime <= ?");
+			paramList.add(Util.strtoDate(priceList.getPublishTimeEnd()));
+		}
+		if (StringUtils.isNotBlank(priceList.getStationName())) {
+			hql.append(" and stationName like ?");
+			paramList.add(priceList.getStationName() + "%");
+		}
+		if (StringUtils.isNotBlank(priceList.getGunNo())) {
+			hql.append(" and gunNo like ?");
+			paramList.add(priceList.getGunNo() + "%");
+		}
+		
 		hql.append(" order by id desc");
 
 		return this.getListForPageDefaultAjax(hql.toString(), paramList.toArray());
 	}
 
+	//充值表
 	public Map<String, Object> getListForRechargeRecord(RechargeRecord rechargeRecord, Person person) {
 
 		StringBuffer hql = new StringBuffer("from RechargeRecord t where 1=1");
@@ -82,7 +101,25 @@ public class GasStationService extends BaseService {
 			hql.append(" and carNo like ?");
 			paramList.add(rechargeRecord.getCarNo() + "%");
 		}
-
+		if (StringUtils.isNotBlank(rechargeRecord.getOperateTimeBegin())) {
+			hql.append(" and operateTime >= ?");
+			paramList.add(Util.strtoDate(rechargeRecord.getOperateTimeBegin()));
+		}
+		if (StringUtils.isNotBlank(rechargeRecord.getOperateTimeEnd())) {
+			hql.append(" and operateTime <= ?");
+			paramList.add(Util.strtoDate(rechargeRecord.getOperateTimeEnd()));
+		}
+		if (StringUtils.isNotBlank(rechargeRecord.getStationName())) {
+			hql.append(" and stationName like ?");
+			paramList.add(rechargeRecord.getStationName() + "%");
+		}
+		if (StringUtils.isNotBlank(rechargeRecord.getHolderName())) {
+			hql.append(" and holderName like ?");
+			paramList.add(rechargeRecord.getHolderName() + "%");
+		}
+		
+		
+		
 		hql.append(" order by id desc");
 
 		return this.getListForPageDefaultAjax(hql.toString(), paramList.toArray());

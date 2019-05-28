@@ -121,9 +121,14 @@
 
 			<form id="searchForm">
 				<ul class="prosearch">
-					<li>卡号 ： <input name="carNo" type="text"
-						class="scinput" /> <input type="button" onclick="searchForm();"
-						class="sure" value="查询" />
+					<li>卡号 ： <input name="carNo" type="text" class="scinput" /> 
+						持卡人姓名 ： <input name="holderName" type="text" class="scinput" /> 
+						操作开始时间 ： <input  name="operateTimeBegin"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						操作结束时间 ： <input  name="operateTimeEnd"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						加气站 ： <input name="stationName" type="text" class="scinput" /> 
+						
+					<input
+						type="button" onclick="searchForm();" class="sure" value="查询" />
 					</li>
 				</ul>
 			</form>

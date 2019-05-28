@@ -9,9 +9,11 @@
 		<frame src="<%=request.getContextPath()%>/top.do" name="topFrame" scrolling="auto" noresize="noresize"
 			id="topFrame" title="topFrame" />
 		<frameset cols="187,*" frameborder="no" border="0" framespacing="0">
-			<frame src="<%=request.getContextPath()%>/left.do?parentId=8" name="leftFrame" scrolling="no"
+		
+			
+			<frame src="<%=request.getContextPath()%>/left.do?parentId=${m.parentId}" name="leftFrame" scrolling="no"
 				noresize="noresize" id="leftFrame" title="leftFrame" />
-			<frame src="<%=request.getContextPath()%>/jsp/welcome.jsp" name="rightFrame" id="rightFrame"
+			<frame src="<%=request.getContextPath()%>${m.url}" name="rightFrame" id="rightFrame"
 				title="rightFrame" />
 		</frameset>
 	</frameset>

@@ -88,7 +88,13 @@
 
 			<form id="searchForm">
 				<ul class="prosearch">
-					<li>枪号 ： <input name="gunNo" type="text" class="scinput" /> <input
+					<li>枪号 ： <input name="gunNo" type="text" class="scinput" /> 
+						下发开始时间 ： <input  name="publishTimeBegin"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						下发结束时间 ： <input  name="publishTimeEnd"  type="text" class="scinput"  value="" onclick="WdatePicker();"/>
+						加气站 ： <input name="stationName" type="text" class="scinput" /> 
+						
+					
+					<input
 						type="button" onclick="searchForm();" class="sure" value="查询" />
 					</li>
 				</ul>

@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -30,6 +31,10 @@ public class PriceList {
 	    private String stationName;//加气站名称
 	    private Integer belgon2PartyId;//公司
 	    
+	    @Transient
+	    private String publishTimeBegin;//加气开始时间
+	    @Transient
+	    private String publishTimeEnd;//加气结束时间
 	    
 		public Integer getId() {
 			return id;
@@ -78,6 +83,18 @@ public class PriceList {
 		}
 		public void setBelgon2PartyId(Integer belgon2PartyId) {
 			this.belgon2PartyId = belgon2PartyId;
+		}
+		public String getPublishTimeBegin() {
+			return publishTimeBegin;
+		}
+		public void setPublishTimeBegin(String publishTimeBegin) {
+			this.publishTimeBegin = publishTimeBegin;
+		}
+		public String getPublishTimeEnd() {
+			return publishTimeEnd;
+		}
+		public void setPublishTimeEnd(String publishTimeEnd) {
+			this.publishTimeEnd = publishTimeEnd;
 		}
 		
 	    

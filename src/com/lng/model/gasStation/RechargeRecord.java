@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -32,6 +33,12 @@ public class RechargeRecord {
 		@Column(length=64)
 	    private String stationName;//加气站名称
 	    private Integer belgon2PartyId;//公司
+	    
+	    @Transient
+	    private String operateTimeBegin;//操作开始时间
+	    @Transient
+	    private String operateTimeEnd;//操作结束时间
+	    
 	    
 	    
 		public Integer getId() {
@@ -111,6 +118,18 @@ public class RechargeRecord {
 		}
 		public void setBelgon2PartyId(Integer belgon2PartyId) {
 			this.belgon2PartyId = belgon2PartyId;
+		}
+		public String getOperateTimeBegin() {
+			return operateTimeBegin;
+		}
+		public void setOperateTimeBegin(String operateTimeBegin) {
+			this.operateTimeBegin = operateTimeBegin;
+		}
+		public String getOperateTimeEnd() {
+			return operateTimeEnd;
+		}
+		public void setOperateTimeEnd(String operateTimeEnd) {
+			this.operateTimeEnd = operateTimeEnd;
 		}
 	    
 	    

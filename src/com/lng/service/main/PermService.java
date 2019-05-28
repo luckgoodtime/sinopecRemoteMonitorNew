@@ -20,7 +20,6 @@ import com.lng.util.comparator.ComparatorMenu;
 
 
 @Service
-@SuppressWarnings({"unchecked","rawtypes"})
 public class PermService extends BaseService{
 	
 	
@@ -198,7 +197,7 @@ public class PermService extends BaseService{
 	/**
 	 * 返回用户的一级和二级菜单
 	 */
-	public List menuForUser(){
+	public List<Menu> menuForUser(){
 		
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		String parentId = request.getParameter("parentId");
@@ -208,10 +207,10 @@ public class PermService extends BaseService{
 		
 		//取用户权限对应的菜单列表
 		Person p = (Person)request.getSession().getAttribute("person");
-		List menuList = getList("select  m from PersonRole pr,RoleMenu rm,Menu m where pr.roleId=rm.roleId and m.id=rm.menuId and pr.personId=?  "
+		List<Menu> menuList = getList("select  m from PersonRole pr,RoleMenu rm,Menu m where pr.roleId=rm.roleId and m.id=rm.menuId and pr.personId=?  "
 				,new Object[]{p.getPartyId()});
 		
-		List returnMenuList = new ArrayList();
+		List<Menu> returnMenuList = new ArrayList<Menu>();
 		for(int i=0;i<menuList.size();i++){
 			Menu m = (Menu)menuList.get(i);
 			if(!returnMenuList.contains(m)){
