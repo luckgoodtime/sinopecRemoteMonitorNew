@@ -102,10 +102,12 @@ function ChangeToTable(printDatagrid) { // 转换grid为table标签
 							tableString += '\n</tr>';
 						});
 	}
+	
+	var rows = getAllData(printData);
 	// 载入内容
-	var rows = printData.datagrid("getRows"); // 这段代码是获取当前页的所有行
-//	console.log("rows:");
-//	console.log(rows);
+	//var rows = printData.datagrid("getRows"); // 这段代码是获取当前页的所有行
+	//	console.log("rows:");
+	//	console.log(rows);
 	
 	for (var i = 0; i < rows.length; ++i) {
 		tableString += '\n<tr >';
@@ -147,6 +149,29 @@ function ChangeToTable(printDatagrid) { // 转换grid为table标签
 	return tableString;
 }
 
+
+function getAllData(printData) {
+	
+	_url = printData.datagrid("options").url
+	
+	_url +="?page=1&rows=10000"
+	var rows;
+	$.ajax({
+		type: 'post',
+		dataType:'json',
+		url: _url,
+		async:false,
+		data:$("#searchForm").serialize(),
+		success:function(msg){
+			console.log(msg);
+			if(msg) {
+				rows = msg.rows;
+			}
+		}
+	});
+	
+	return rows;
+}
 function changeColum(gridid) { // 修改列宽和列的显示状态
 	var grid = $("#" + gridid);
 	var cbs = $("#colums_father").find('.excelcbstate');
@@ -179,7 +204,7 @@ function daochuExcel(gridid, urls) { // 导出
 	txtConent.appendTo(form);
 	
 	$('.placeul li a:eq(1)').each(function(){
-		console.log($(this).html());
+//		console.log($(this).html());
 		fileName.val($(this).html());
 		
 	});
