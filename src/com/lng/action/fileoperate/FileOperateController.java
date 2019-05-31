@@ -2,12 +2,15 @@ package com.lng.action.fileoperate;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
- 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -107,4 +110,39 @@ public class FileOperateController {
         }
         return map;
     }   
+
+	@RequestMapping(value = "/exprotExcel.do")
+	public void exprotExcel(HttpServletRequest request, HttpServletResponse response) {
+
+		PrintWriter out = null;
+		try {
+			String fileName = request.getParameter("fileName");
+			if(StringUtils.isBlank(fileName)) {
+				fileName = "excel导出";
+			}
+			fileName = new String(fileName.getBytes("utf-8"), "ISO8859-1");
+			response.setCharacterEncoding("utf-8");
+			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");// 设定输出文件头
+			response.setContentType("Application/ms-excel");// 定义输出类型
+
+			out = response.getWriter();
+			out.println("<html>\\n<head></head>\\n");
+			out.println("<body>\n" + request.getParameter("txtConent") + "\n</body>\n</html>");
+			out.flush();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (out != null) {
+				try {
+					out.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+
+	}
 }

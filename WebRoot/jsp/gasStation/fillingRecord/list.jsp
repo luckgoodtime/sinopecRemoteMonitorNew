@@ -33,7 +33,7 @@ function dataGridTable() {
 	        { field: 'cardNo', title: '卡号' },
 	        { field: 'holderName', title: '持卡人姓名' ,align:'center'},
 	        { field: 'plateNo', title: '车牌号' },
-	        { field: 'fillTime', title: '加气时间', 
+	        { field: 'fillTime', title: '加气时间',type:'date', 
 	        	formatter: function (val, row, index) {
 	                return (new Date(val)).format("yyyy-MM-dd hh:mm:ss");
 	             }
@@ -88,12 +88,19 @@ function dataGridTable() {
 	        { field: 'note', title: '说明' }
 	        
 	      ]]
-	});	    
+	      
+	});	   
+	
+	/*var pager = $('#dataGridTable').datagrid('getPager');
+	pager.pagination({showPageList:true});*/
 }
 
 function searchForm() {
-	
 	$('#dataGridTable').datagrid('load',sy.serializeObject($("#searchForm").form()));
+}
+
+function exportExcel() {
+	daochuExcel("dataGridTable", "<%=request.getContextPath()%>/fileOperate/exprotExcel.do");
 }
 
 </script>
@@ -137,10 +144,12 @@ function searchForm() {
 						
 						
 						<input type="button" onclick="searchForm();" class="sure" value="查询" />
+						<input type="button" onclick="exportExcel();" class="sure exportExcel" value="导出excel" />
 					</li>
 				</ul>
 			</form>
 		</div>
+
 
 		<div>
 			<table id="dataGridTable"></table>

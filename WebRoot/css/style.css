@@ -314,3 +314,7 @@ h2{font-weight:normal;}
 	border: 1px solid #CCCCCC;
 	opacity:100;
 }
+
+.exportExcel {
+	width: 70px;
+}
