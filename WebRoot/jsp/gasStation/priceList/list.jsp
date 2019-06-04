@@ -40,6 +40,7 @@
 				title : '新价格'
 			}, {
 				field : 'publishTime',
+				type:'date',
 				title : '下发时间',
 				formatter : function(value) {
 					var date = new Date(value);
@@ -96,6 +97,7 @@
 					
 					<input
 						type="button" onclick="searchForm();" class="sure" value="查询" />
+						<input type="button"  class="sure exportExcel"  /><!-- 导出excel -->
 					</li>
 				</ul>
 			</form>

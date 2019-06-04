@@ -99,9 +99,7 @@ function searchForm() {
 	$('#dataGridTable').datagrid('load',sy.serializeObject($("#searchForm").form()));
 }
 
-function exportExcel() {
-	daochuExcel("dataGridTable", "<%=request.getContextPath()%>/fileOperate/exprotExcel.do");
-}
+
 
 </script>
 </head>
@@ -144,7 +142,7 @@ function exportExcel() {
 						
 						
 						<input type="button" onclick="searchForm();" class="sure" value="查询" />
-						<input type="button" onclick="exportExcel();" class="sure exportExcel" value="导出excel" />
+						<input type="button"  class="sure exportExcel"  /><!-- 导出excel -->
 					</li>
 				</ul>
 			</form>

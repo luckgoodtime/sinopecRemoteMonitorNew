@@ -8,3 +8,15 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/js/dataGridExcel.js"></script>
 
 <%@ include file="/jsp/include/easyui_js_css.jsp"%>
+
+
+<script type="text/javascript">
+$(function(){
+
+	//通用导出excel
+	$(".exportExcel").val("导出excel");
+	$(".exportExcel").click(function(){
+		daochuExcel("dataGridTable", "<%=request.getContextPath()%>/fileOperate/exprotExcel.do");
+ 	}); 
+});
+</script>

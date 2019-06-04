@@ -33,6 +33,7 @@ function dataGridTable() {
 	        { field: 'carNo', title: '卡号' }, {
 				field : 'startTime',
 				title : '上班时间',
+				type:'date',
 				formatter : function(value) {
 					var date = new Date(value);
 					var y = date.getFullYear();
@@ -46,6 +47,7 @@ function dataGridTable() {
 			}, {
 				field : 'endTime',
 				title : '下班时间',
+				type:'date',
 				formatter : function(value) {
 					var date = new Date(value);
 					var y = date.getFullYear();
@@ -59,6 +61,7 @@ function dataGridTable() {
 			}, {
 				field : 'confirmTime',
 				title : '审核时间',
+				type:'date',
 				formatter : function(value) {
 					var date = new Date(value);
 					var y = date.getFullYear();
@@ -105,6 +108,7 @@ function searchForm() {
 					 <li>班组号 ： <input name="shiftNo" type="text"
 						class="scinput" /> <input type="button" onclick="searchForm();"
 						class="sure" value="查询" />
+						<input type="button"  class="sure exportExcel"  /><!-- 导出excel -->
 					</li>
 				</ul>
 			</form>

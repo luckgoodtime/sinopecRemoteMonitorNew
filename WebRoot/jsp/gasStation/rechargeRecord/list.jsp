@@ -44,6 +44,7 @@
 			}, {
 				field : 'operateTime',
 				title : '操作时间',
+				type:'date',
 				formatter : function(value) {
 					var date = new Date(value);
 					var y = date.getFullYear();
@@ -129,6 +130,7 @@
 						
 					<input
 						type="button" onclick="searchForm();" class="sure" value="查询" />
+						<input type="button"  class="sure exportExcel"  /><!-- 导出excel -->
 					</li>
 				</ul>
 			</form>

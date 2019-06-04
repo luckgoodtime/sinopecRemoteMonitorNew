@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +15,8 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.lng.util.Util;
 
  
 @Controller
@@ -121,6 +124,8 @@ public class FileOperateController {
 				fileName = "excel导出";
 			}
 			fileName = new String(fileName.getBytes("utf-8"), "ISO8859-1");
+			fileName += Util.datetoStr(new Date());
+
 			response.setCharacterEncoding("utf-8");
 			response.setHeader("Content-disposition", "attachment; filename=" + fileName + ".xls");// 设定输出文件头
 			response.setContentType("Application/ms-excel");// 定义输出类型
