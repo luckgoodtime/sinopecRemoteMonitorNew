@@ -30,9 +30,6 @@
 				field : 'id',
 				title : '编号'
 			}, {
-				field : 'gunNo',
-				title : '枪号'
-			}, {
 				field : 'oldPrice',
 				title : '旧价格'
 			}, {
