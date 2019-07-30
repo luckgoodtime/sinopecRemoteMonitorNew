@@ -2,6 +2,7 @@ package com.lng.action.gasStation;
 
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -57,51 +58,64 @@ public class ReceiveStationData extends BaseController{
 	@ResponseBody
 	public <T> Map acceptStationData(HttpServletRequest request, @RequestBody String json) throws UnsupportedEncodingException {
 		
-		JSONObject obj = JSON.parseObject(json);
+		System.out.println("--------------enter into acceptStationData-------:" + new Date().toString() );
+		System.out.println("--------------json is -------:" + json);
 		
-		//本次操作是否成功,如果成功，actionResult为保存的记录数
-		int result = -1;		 
-		
-		System.out.println("-----------");
-		System.out.println(obj.toJSONString());
-		System.out.println("-----------");
+		int result = -1;	
 		Map message = new HashMap();
 		
-		String recordType = obj.getString("recordType");
-		String stationNo = obj.getString("stationNo");
-		String stationName = obj.getString("stationName");
-		
-		JSONArray data = (JSONArray)obj.get("data");
-		
-		List<T> list = null;
-		
-		if("FillingRecord".equals(recordType)) {
-			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), FillingRecord.class);
+		try{
+			JSONObject obj = JSON.parseObject(json);
 			
-			System.out.println(((FillingRecord)list.get(0)).getRecordId());
+			//本次操作是否成功,如果成功，actionResult为保存的记录数	 
 			
-		} else if("PriceList".equals(recordType)) {			
-			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), PriceList.class);	
-		} else if("RechargeRecord".equals(recordType)) {			
-			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), RechargeRecord.class);	
-		} else if("ShiftRecord".equals(recordType)){
-			list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), ShiftRecord.class);
-		}
-		
-		if(list != null && list.size() > 0) {
-			for(Object bean : list) {
-				try {
-					BeanUtils.copyProperty(bean, "stationNo", stationNo);
-					BeanUtils.copyProperty(bean, "stationName", stationName);
-				} catch (IllegalAccessException e) {
-					e.printStackTrace();
-				} catch (InvocationTargetException e) {
-					e.printStackTrace();
-				}
+			System.out.println("-----------" );
+			System.out.println(obj.toJSONString());
+			System.out.println("-----------");
+
+			
+			String recordType = obj.getString("recordType");
+			String stationNo = obj.getString("stationNo");
+			String stationName = obj.getString("stationName");
+			
+			JSONArray data = (JSONArray)obj.get("data");
+			
+			List<T> list = null;
+			
+			if("FillingRecord".equals(recordType)) {
+				list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), FillingRecord.class);
+				
+				System.out.println(((FillingRecord)list.get(0)).getRecordId());
+				
+			} else if("PriceList".equals(recordType)) {			
+				list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), PriceList.class);	
+			} else if("RechargeRecord".equals(recordType)) {			
+				list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), RechargeRecord.class);	
+			} else if("ShiftRecord".equals(recordType)){
+				list = (List<T>) ReceiveStationData.jsonToList(data.toJSONString(), ShiftRecord.class);
 			}
-			this.baseService.batchSaveOrUpdate(list);
-			result = 1;
+			
+			if(list != null && list.size() > 0) {
+				for(Object bean : list) {
+					try {
+						BeanUtils.copyProperty(bean, "stationNo", stationNo);
+						BeanUtils.copyProperty(bean, "stationName", stationName);
+					} catch (IllegalAccessException e) {
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						e.printStackTrace();
+					}
+				}
+				this.baseService.batchSaveOrUpdate(list);
+				result = 1;
+			}
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			message.put("exception", e);
 		}
+		
+		
 		
 		message.put("result", result);
 		return message;
@@ -118,6 +132,8 @@ public class ReceiveStationData extends BaseController{
 		
 		String s = "{ recordType: \"FillingRecord\", stationNo: \"L02-01-0001\", stationName: \"朗润测试站\", data: [{  \"recordId\": \"100\",\"gunNo\": \"01\", \"cardNo\": \"01000411200000000003\", \"holderName\": \"张三\", \"plateNo\": \"津A12345\", \"fillTime\": \"2019-05-11 20:55:04\", \"Price\": \"5.23\", \"volume\": \"34.67\", \"receivable\": \"181.32\", \"discount\": \"0.32\", \"receiptTotal\": \"181.00\", \"cardBalance\": \"4565.65\", \"cardType\": \"员工卡\", \"fillType\": \"LNG\", \"ttc\": \"2019051100001\", \"note\": \" \"},{ \"recordId\": \"101\",\"gunNo\": \"04\", \"cardNo\": \"01000111200000000002\", \"holderName\": \"李四\", \"plateNo\": \"津A67890\", \"fillTime\": \"2019-05-12 10:33:56\", \"Price\": \"4.25\", \"volume\": \"14.06\", \"receivable\": \"59.76\", \"discount\": \"0.76\", \"receiptTotal\": \"59.00\", \"cardBalance\": \"1233.02\", \"cardType\": \"用户卡\", \"fillType\": \"CNG\", \"ttc\": \"2019051200021\", \"note\": \" \"}] }";
 		
+		s = "{\"data\":[{\"recordId\":\"14\",\"publishTime\":\"2019-05-31 10:00:20\",\"gunNo\":\"01\",\"stationNo\":\"10-0001\",\"oldPrice\":\"4.23\",\"stationName\":\"朗润测试站\",\"newPrice\":\"4.25\"}],\"stationNo\":\"L02-01-0001\",\"recordType\":\"PriceList\",\"stationName\":\"朗润测试站\"}";
+		s = "{  recordType: \"PriceList\",  stationNo: \"L02-01-0001\",  stationName: \"朗润测试站\",  data: [{  \"recordId\": \"15\",  \"gunNo\": \"03\",  \"oldPrice\": \"4.23\",  \"newPrice\": \"4.30\",  \"publishTime\": \"2019-05-31 13:03:10\",  \"stationNo\": \"10-0001\",  \"stationName\": \"朗润测试站\"}]}";
 		JSONObject obj = JSON.parseObject(s);
 		
 		String recordType = obj.getString("recordType");
