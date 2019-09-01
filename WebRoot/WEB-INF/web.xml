@@ -137,6 +137,10 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
+	<servlet>
+	    <servlet-name>ureportServlet</servlet-name>
+	    <servlet-class>com.bstek.ureport.console.UReportServlet</servlet-class>
+	</servlet>	
 	<servlet-mapping>
 		<servlet-name>ConnectorServlet</servlet-name>
 		<url-pattern>
@@ -149,7 +153,10 @@
 			/js/ckfinder/core/connector/java/connector.java
 		</url-pattern>
 	</servlet-mapping>
-	
+	<servlet-mapping>
+	    <servlet-name>ureportServlet</servlet-name>
+	    <url-pattern>/ureport/*</url-pattern>
+	</servlet-mapping>	
 
 
 	<!-- 验证码 
